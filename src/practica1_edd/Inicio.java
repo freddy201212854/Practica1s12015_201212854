@@ -5,6 +5,8 @@
  */
 package practica1_edd;
 
+import java.awt.BorderLayout;
+
 /**
  *
  * @author KRATOS
@@ -16,6 +18,7 @@ public class Inicio extends javax.swing.JFrame {
      */
     public Inicio() {
         initComponents();
+       
     }
 
     /**
@@ -31,47 +34,40 @@ public class Inicio extends javax.swing.JFrame {
         Zombis = new javax.swing.JButton();
         Juego = new javax.swing.JButton();
         Eliminar_Juego = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("JUGADORES");
+        setMinimumSize(new java.awt.Dimension(600, 500));
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Plantas.setBackground(new java.awt.Color(51, 51, 51));
+        Plantas.setFont(new java.awt.Font("Ravie", 1, 18)); // NOI18N
+        Plantas.setForeground(new java.awt.Color(255, 255, 255));
         Plantas.setText("JUGADOR PLANTAS");
+        getContentPane().add(Plantas, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, -1));
 
+        Zombis.setBackground(new java.awt.Color(51, 51, 51));
+        Zombis.setFont(new java.awt.Font("Ravie", 1, 18)); // NOI18N
+        Zombis.setForeground(new java.awt.Color(255, 255, 255));
         Zombis.setText("JUGADOR ZOMBIS");
+        getContentPane().add(Zombis, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, -1, -1));
 
+        Juego.setBackground(new java.awt.Color(51, 51, 51));
+        Juego.setFont(new java.awt.Font("Ravie", 1, 18)); // NOI18N
+        Juego.setForeground(new java.awt.Color(255, 255, 255));
         Juego.setText("COMENZAR JUEGO");
+        getContentPane().add(Juego, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
 
+        Eliminar_Juego.setBackground(new java.awt.Color(51, 51, 51));
+        Eliminar_Juego.setFont(new java.awt.Font("Ravie", 1, 18)); // NOI18N
+        Eliminar_Juego.setForeground(new java.awt.Color(255, 255, 255));
         Eliminar_Juego.setText("ELIMINAR DATOS");
+        getContentPane().add(Eliminar_Juego, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addComponent(Juego)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
-                .addComponent(Eliminar_Juego)
-                .addGap(84, 84, 84))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(195, 195, 195)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Zombis)
-                    .addComponent(Plantas))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addComponent(Plantas)
-                .addGap(52, 52, 52)
-                .addComponent(Zombis)
-                .addGap(75, 75, 75)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Juego)
-                    .addComponent(Eliminar_Juego))
-                .addContainerGap(131, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/portada.jpg"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -81,6 +77,7 @@ public class Inicio extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
+        System.out.println("Freddy-201212854");
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -116,5 +113,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton Juego;
     private javax.swing.JButton Plantas;
     private javax.swing.JButton Zombis;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
