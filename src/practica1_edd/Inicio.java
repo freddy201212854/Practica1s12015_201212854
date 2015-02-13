@@ -46,12 +46,22 @@ public class Inicio extends javax.swing.JFrame {
         Plantas.setFont(new java.awt.Font("Ravie", 1, 18)); // NOI18N
         Plantas.setForeground(new java.awt.Color(255, 255, 255));
         Plantas.setText("JUGADOR PLANTAS");
+        Plantas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PlantasActionPerformed(evt);
+            }
+        });
         getContentPane().add(Plantas, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, -1));
 
         Zombis.setBackground(new java.awt.Color(51, 51, 51));
         Zombis.setFont(new java.awt.Font("Ravie", 1, 18)); // NOI18N
         Zombis.setForeground(new java.awt.Color(255, 255, 255));
         Zombis.setText("JUGADOR ZOMBIS");
+        Zombis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ZombisActionPerformed(evt);
+            }
+        });
         getContentPane().add(Zombis, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, -1, -1));
 
         Juego.setBackground(new java.awt.Color(51, 51, 51));
@@ -71,6 +81,16 @@ public class Inicio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void PlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlantasActionPerformed
+        Plantas ventana=new Plantas();
+        ventana.setVisible(true);
+    }//GEN-LAST:event_PlantasActionPerformed
+
+    private void ZombisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZombisActionPerformed
+        Zombies ventana=new Zombies();
+        ventana.setVisible(true);
+    }//GEN-LAST:event_ZombisActionPerformed
 
     /**
      * @param args the command line arguments
