@@ -68,6 +68,11 @@ public class Inicio extends javax.swing.JFrame {
         Juego.setFont(new java.awt.Font("Ravie", 1, 18)); // NOI18N
         Juego.setForeground(new java.awt.Color(255, 255, 255));
         Juego.setText("COMENZAR JUEGO");
+        Juego.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JuegoActionPerformed(evt);
+            }
+        });
         getContentPane().add(Juego, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
 
         Eliminar_Juego.setBackground(new java.awt.Color(51, 51, 51));
@@ -92,6 +97,36 @@ public class Inicio extends javax.swing.JFrame {
         ventana.setVisible(true);
     }//GEN-LAST:event_ZombisActionPerformed
 
+    private void JuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JuegoActionPerformed
+      Generar();
+    }//GEN-LAST:event_JuegoActionPerformed
+
+    public void Generar()
+    {
+        try{
+           String dotPath="C:\\Users\\KRATOS\\Downloads\\Compressed\\release\\bin\\dot.exe"; 
+           String fileInputPath="C:\\Users\\KRATOS\\Desktop\\1er Semestre 2015\\Estructuras de Datos\\imagenes_practica1\\graph.txt";
+           String fileOutputPath="C:\\Users\\KRATOS\\Desktop\\1er Semestre 2015\\Estructuras de Datos\\imagenes_practica1\\graph.png";
+           String tParam="-Tjpg";
+           String tOParam="-o";
+           
+           
+           String[] cmd=new String[5];
+           cmd[0]=dotPath;
+           cmd[1]=tParam;
+           cmd[2]=fileInputPath;
+           cmd[3]=tOParam;
+           cmd[4]=fileOutputPath;
+           
+           Runtime rt=Runtime.getRuntime();
+           rt.exec(cmd);
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }finally{
+            
+        }
+    
+    }
     /**
      * @param args the command line arguments
      */
