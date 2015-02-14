@@ -1,0 +1,8 @@
+digraph A{
+Plantas->Freddy
+Plantas->Zombies
+Freddy->21
+Zombies->Alejandro
+Alejandro->22
+
+}

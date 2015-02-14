@@ -10,7 +10,7 @@ package practica1_edd;
  * @author KRATOS
  */
 public class Plantas extends javax.swing.JFrame {
-
+   int contador=0;
     /**
      * Creates new form Plantas
      */
@@ -43,6 +43,11 @@ public class Plantas extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Ravie", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Agreagar Campos Extras");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, 30));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -72,6 +77,22 @@ public class Plantas extends javax.swing.JFrame {
     private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nombreActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        contador++;
+        String nom=nombre.getText().trim();
+        String cant=cantidad.getText().trim();
+        if(contador==1){
+           Inicio.ListaInformacion.InsertAtFront("Plantas");
+         //  
+           Inicio.ListaInformacion.InsertAtBack(nom);
+           Inicio.ListaInformacion.InsertAtBack(cant);
+        //   Inicio.ListaInformacion.unir("Zombies");
+          // Inicio.ListaInformacion.unir("Fredddd");
+        }else{
+            
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

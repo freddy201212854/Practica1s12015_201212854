@@ -16,6 +16,7 @@ public class Inicio extends javax.swing.JFrame {
     /**
      * Creates new form Inicio
      */
+    public static ListaEnlazada ListaInformacion=new ListaEnlazada();
     public Inicio() {
         initComponents();
        
@@ -98,35 +99,10 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_ZombisActionPerformed
 
     private void JuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JuegoActionPerformed
-      Generar();
+         ListaInformacion.imprimir();
     }//GEN-LAST:event_JuegoActionPerformed
 
-    public void Generar()
-    {
-        try{
-           String dotPath="C:\\Users\\KRATOS\\Downloads\\Compressed\\release\\bin\\dot.exe"; 
-           String fileInputPath="C:\\Users\\KRATOS\\Desktop\\1er Semestre 2015\\Estructuras de Datos\\imagenes_practica1\\graph.txt";
-           String fileOutputPath="C:\\Users\\KRATOS\\Desktop\\1er Semestre 2015\\Estructuras de Datos\\imagenes_practica1\\graph.png";
-           String tParam="-Tjpg";
-           String tOParam="-o";
-           
-           
-           String[] cmd=new String[5];
-           cmd[0]=dotPath;
-           cmd[1]=tParam;
-           cmd[2]=fileInputPath;
-           cmd[3]=tOParam;
-           cmd[4]=fileOutputPath;
-           
-           Runtime rt=Runtime.getRuntime();
-           rt.exec(cmd);
-        }catch(Exception ex){
-            ex.printStackTrace();
-        }finally{
-            
-        }
     
-    }
     /**
      * @param args the command line arguments
      */
@@ -134,12 +110,12 @@ public class Inicio extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         System.out.println("Freddy-201212854");
         
-        ListaEnlazada list=new ListaEnlazada();
+       /* ListaEnlazada list=new ListaEnlazada();
         list.InsertAtFront("3");
         list.InsertAtFront("2");
         list.InsertAtFront("1");
         list.InsertAtFront("0");
-        list.imprimir();
+        list.imprimir();*/
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 

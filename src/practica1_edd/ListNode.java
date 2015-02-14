@@ -12,7 +12,7 @@ package practica1_edd;
 public class ListNode {
     
     Object dato;
-    ListNode next;
+    ListNode next,abajo;
     
     public ListNode(Object dato)
     {
@@ -23,5 +23,9 @@ public class ListNode {
     {
         this.dato=dato;
         this.next=n;
+        this.abajo=n;
+        
     }
+    
+  
 }
