@@ -135,10 +135,10 @@ public class Inicio extends javax.swing.JFrame {
         System.out.println("Freddy-201212854");
         
         ListaEnlazada list=new ListaEnlazada();
-        list.InsertAtBack("3");
-        list.InsertAtBack("2");
-        list.InsertAtBack("1");
-        list.InsertAtBack("0");
+        list.InsertAtFront("3");
+        list.InsertAtFront("2");
+        list.InsertAtFront("1");
+        list.InsertAtFront("0");
         list.imprimir();
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
