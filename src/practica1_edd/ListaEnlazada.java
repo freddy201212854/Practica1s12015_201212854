@@ -5,12 +5,7 @@
  */
 package practica1_edd;
 
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintWriter;
-import org.omg.CORBA.Environment;
+import java.io.*;
 
 /**
  *
@@ -60,9 +55,8 @@ public class ListaEnlazada {
          }
      }
     public void imprimir(){//imprime los datos de la lista generando su imagen
-        if(isEmpty())
+        if(!isEmpty()){
         
-            System.out.println("Lista vacia");
             
             ListNode actual=firstNode;
             ListNode actual2=firstNode.abajo;
@@ -76,8 +70,10 @@ public class ListaEnlazada {
             {
                 ToDot(actual2);
                 //System.out.println(actual.dato);
-                actual2=actual2.abajo;    
+                actual2=actual2.abajo; 
             }
+        }else
+            System.out.println("Lista vacia");
     }
     public static String ToDot(ListNode node) {//genera los datos que van en el archivo de texto
             StringBuilder b = new StringBuilder();
