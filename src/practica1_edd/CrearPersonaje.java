@@ -173,6 +173,13 @@ public class CrearPersonaje extends javax.swing.JFrame {
          if(!ata.isEmpty()){
             lista.editar(nom,Integer.valueOf(ata),-1, tip);     
          }
+         if(!def.isEmpty()){
+            lista.editar(nom,-1,Integer.valueOf(def), tip);     
+         }
+         if(!tip.isEmpty())
+         {
+            lista.editar(nom,-1,-1, tip);         
+         }
          
         DefaultTableModel modelo=(DefaultTableModel) jTable1.getModel();
               for (int i = 0; i < ListaDoble.size; i++) {
