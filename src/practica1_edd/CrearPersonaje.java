@@ -162,6 +162,36 @@ public class CrearPersonaje extends javax.swing.JFrame {
         URL url=this.getClass().getResource(path);
         ImageIcon icon=new ImageIcon(url);
         imagen.setIcon(icon);*/
+        try{
+         String nom=nombre.getText().trim();
+         String ata=ataque.getText().trim();
+         String def=defensa.getText().trim();
+         String tip=tipo.getText().trim();
+         
+         if(!nom.isEmpty()&&!ata.isEmpty()&&!def.isEmpty()&&!tip.isEmpty())
+            lista.editar(nom,Integer.valueOf(ata), Integer.valueOf(def), tip);
+         if(!ata.isEmpty()){
+            lista.editar(nom,Integer.valueOf(ata),-1, tip);     
+         }
+         
+        DefaultTableModel modelo=(DefaultTableModel) jTable1.getModel();
+              for (int i = 0; i < ListaDoble.size; i++) {
+                  for(int j=0;j<4;j++){
+                      //System.out.println(jTable1.getValueAt(i, j));
+                  if(jTable1.getValueAt(i, j).equals(nom)){  
+                      jTable1.setValueAt(nom, i, j);
+                      if(!ata.isEmpty())
+                      jTable1.setValueAt(ata, i, j+1);
+                      if(!def.isEmpty())
+                      jTable1.setValueAt(def, i, j+2);
+                      if(!tip.isEmpty())
+                      jTable1.setValueAt(tip, i, j+3);
+                  }  
+               }
+              }
+        }catch(Exception ex){
+        //    System.out.println(ex);
+        }
     }//GEN-LAST:event_modificarActionPerformed
 
     private void insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarActionPerformed
@@ -179,14 +209,11 @@ public class CrearPersonaje extends javax.swing.JFrame {
         DefaultTableModel modelo=(DefaultTableModel) jTable1.getModel();
         // Estudiante op[]=new Estudiante[Listado.ListEstudiantes.size()];
         Object [] filas=new Object[modelo.getColumnCount()];
-
         // String path="/imagenes/plantas.jpg";
         //URL url=this.getClass().getResource(path);dffffsdfd
         //ImageIcon icon=new ImageIcon(url);
         //  imagen.setIcon(icon);
-        // filas[0]=new ImageIcon(url);
-        // filas[1]=Listado.ListEstudiantes.get(i).getNombre();
-        // filas[2]=Listado.ListEstudiantes.get(i).getSemestre();
+      
         filas[0]=nom;
         filas[1]=ataq;
         filas[2]=def;
@@ -208,8 +235,7 @@ public class CrearPersonaje extends javax.swing.JFrame {
                    modelo.removeRow(i);
                 //  System.out.println(ListaDoble.size);
                   }
-         // i-=1;
-       }
+              }
         }catch(Exception ex){
         //    System.out.println(ex);
         }

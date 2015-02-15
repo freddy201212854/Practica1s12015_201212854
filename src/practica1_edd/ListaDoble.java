@@ -83,8 +83,11 @@ public class ListaDoble {
                 {
                    // datos.setOponente(oponente);
                     datos.setNombre(Nombre);
+                    if(!"-1 ".equals(String.valueOf(PtsAtaque)))
                     datos.setAtaque(PtsAtaque);
+                    if(!"-1".equals(String.valueOf(PtsDefensa)))
                     datos.setDefensa(PtsDefensa);
+                    if(!TipoDisparo.equals(""))
                     datos.setDisparo(TipoDisparo);
                 }
                 n = n.adelante;
@@ -100,7 +103,11 @@ public class ListaDoble {
         Personajes datos = (Personajes)n.dato;
         
         System.out.print("nombre: "+datos.getNombre()+" ");
-        System.out.println("ataque: "+datos.getAtaque());
+        System.out.print("ataque: "+datos.getAtaque()+" ");
+        System.out.print("defensa: "+datos.getDefensa()+" ");
+        System.out.println("Tipo: "+datos.getDisparo());
+
+
         n = n.adelante;
         }
     }
