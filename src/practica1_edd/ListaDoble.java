@@ -11,7 +11,7 @@ package practica1_edd;
  */
 public class ListaDoble {
     static String nombres,tipos;
-    static int ataques,defensa;
+    static int ataques,defensa,size;
     NodoDoble cabeza;
     
     public ListaDoble()
@@ -27,6 +27,7 @@ public class ListaDoble {
             if (cabeza != null)
                 cabeza.atras = nuevo;
             cabeza = nuevo;
+            size++;
         }
        
        

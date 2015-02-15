@@ -197,11 +197,23 @@ public class CrearPersonaje extends javax.swing.JFrame {
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
              
-        String nom=nombre.getText().trim();  
-        lista.eliminar(nom);
-        
-                 
-
+        try{
+         String nom=nombre.getText().trim();  
+         lista.eliminar(nom);
+        DefaultTableModel modelo=(DefaultTableModel) jTable1.getModel();
+              for (int i = 0; i < ListaDoble.size; i++) {
+                  for(int j=0;j<4;j++){
+                      //System.out.println(jTable1.getValueAt(i, j));
+                  if(jTable1.getValueAt(i, j).equals(nom))    
+                   modelo.removeRow(i);
+                //  System.out.println(ListaDoble.size);
+                  }
+         // i-=1;
+       }
+        }catch(Exception ex){
+        //    System.out.println(ex);
+        }
+      //  jTable1.setModel(new DefaultTableModel());
     }//GEN-LAST:event_eliminarActionPerformed
 
     /**
