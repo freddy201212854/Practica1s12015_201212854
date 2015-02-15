@@ -83,7 +83,7 @@ public class ListaDoble {
                 {
                    // datos.setOponente(oponente);
                     datos.setNombre(Nombre);
-                    if(!"-1 ".equals(String.valueOf(PtsAtaque)))
+                    if(!"-1".equals(String.valueOf(PtsAtaque)))
                     datos.setAtaque(PtsAtaque);
                     if(!"-1".equals(String.valueOf(PtsDefensa)))
                     datos.setDefensa(PtsDefensa);
@@ -111,4 +111,26 @@ public class ListaDoble {
         n = n.adelante;
         }
     }
+      
+   /* public void atrasNodo(){
+        
+        if(contador==0){
+            contacto=cabeza;
+            contador++;
+        }
+        
+        if(contacto.atras!=null){
+            contacto=contacto.atras; 
+            System.out.println("Atras");
+           objContacto contact = (objContacto)contacto.dato;
+           VistaContactos.nombre.setText(contact.obtenerNombre());
+           VistaContactos.apellido.setText(contact.obtenerApellido());
+           VistaContactos.telefono.setText(""+contact.obtenerTelefono());
+           VistaContactos.direccion.setText(contact.obtenerDireccion());
+           System.out.println("Nombre: "+contact.obtenerNombre());
+           
+           
+        
+            
+}*/
 }

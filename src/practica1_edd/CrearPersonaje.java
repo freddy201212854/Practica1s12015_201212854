@@ -19,10 +19,24 @@ public class CrearPersonaje extends javax.swing.JFrame {
      * Creates new form CrearPersonaje
      */
    public static ListaDoble lista=new ListaDoble();
+   public static ListaDoble listaImg=new ListaDoble();
     public CrearPersonaje() {
         initComponents();
-    }
+        
+        ListaImagenes obj=new ListaImagenes("plantas.jpg");
+        ListaImagenes obj2=new ListaImagenes("zombies.jpg"); 
 
+        listaImg.insertarCabezaLista(obj);
+        listaImg.insertarCabezaLista(obj2);
+    }
+    public void MostrarImagenes(String img)
+    {
+         String path="/imagenes/"+img;
+          URL url=this.getClass().getResource(path);
+          ImageIcon icon=new ImageIcon(url);
+          imagen.setIcon(icon);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,7 +53,7 @@ public class CrearPersonaje extends javax.swing.JFrame {
         insertar = new javax.swing.JButton();
         modificar = new javax.swing.JButton();
         eliminar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        atras = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -51,7 +65,8 @@ public class CrearPersonaje extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Creando Plantas");
         setMinimumSize(new java.awt.Dimension(700, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -100,11 +115,16 @@ public class CrearPersonaje extends javax.swing.JFrame {
         });
         getContentPane().add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(51, 51, 51));
-        jButton1.setFont(new java.awt.Font("Ravie", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("<");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, -1, -1));
+        atras.setBackground(new java.awt.Color(51, 51, 51));
+        atras.setFont(new java.awt.Font("Ravie", 1, 18)); // NOI18N
+        atras.setForeground(new java.awt.Color(255, 255, 255));
+        atras.setText("<");
+        atras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atrasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, -1, -1));
 
         jButton2.setBackground(new java.awt.Color(51, 51, 51));
         jButton2.setFont(new java.awt.Font("Ravie", 1, 18)); // NOI18N
@@ -249,6 +269,10 @@ public class CrearPersonaje extends javax.swing.JFrame {
       //  jTable1.setModel(new DefaultTableModel());
     }//GEN-LAST:event_eliminarActionPerformed
 
+    private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
+
+    }//GEN-LAST:event_atrasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -286,11 +310,11 @@ public class CrearPersonaje extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ataque;
+    private javax.swing.JButton atras;
     private javax.swing.JTextField defensa;
     private javax.swing.JButton eliminar;
     private javax.swing.JLabel imagen;
     private javax.swing.JButton insertar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
