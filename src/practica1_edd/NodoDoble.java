@@ -10,5 +10,12 @@ package practica1_edd;
  * @author KRATOS
  */
 public class NodoDoble {
-    
+    Object dato;
+    NodoDoble adelante;
+    NodoDoble atras;
+    public NodoDoble(Object entrada)
+    {
+        dato=entrada;
+        adelante=atras=null;
+    }
 }

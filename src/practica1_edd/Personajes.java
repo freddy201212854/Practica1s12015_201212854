@@ -48,4 +48,12 @@ public class Personajes {
     {
         this.PtsDefensa=defensa;
     }
+    public String getDisparo()
+    {
+        return this.TipoDisparo;
+    }
+    public void setDisparo(String disparo)
+    {
+        this.TipoDisparo=disparo;
+    }
 }
