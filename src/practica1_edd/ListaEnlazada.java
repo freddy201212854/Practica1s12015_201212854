@@ -12,10 +12,12 @@ import java.io.*;
  * @author KRATOS
  */
 public class ListaEnlazada {
-    static String textos="";
+    static String textos="",txt="";
+    static int contador=0;
     ListNode firstNode;
     ListNode lastNode;
     ListNode down;
+    ListNode Jugador;
     ListNode node;
     public ListaEnlazada()
     {
@@ -35,7 +37,7 @@ public class ListaEnlazada {
          firstNode=new ListNode(dato,firstNode);
      }
     }
-    
+   
      public void InsertAtBack(Object dato)//inserta el dato al final de la lista
     {
         if(isEmpty())
@@ -54,12 +56,13 @@ public class ListaEnlazada {
              down=down.abajo=new ListNode(dato);
          }
      }
+     
     public void imprimir(){//imprime los datos de la lista generando su imagen
         if(!isEmpty()){
-        
-            
+                
             ListNode actual=firstNode;
             ListNode actual2=firstNode.abajo;
+            ListNode actual3=firstNode.jugador;
             while(actual!=null)
             {
                 ToDot(actual);
@@ -72,14 +75,26 @@ public class ListaEnlazada {
                 //System.out.println(actual.dato);
                 actual2=actual2.abajo; 
             }
+            while(actual3!=null)
+            {
+                ToDot(actual3);
+                //System.out.println(actual.dato);
+                actual3=actual3.jugador; 
+            }
         }else
             System.out.println("Lista vacia");
     }
     public static String ToDot(ListNode node) {//genera los datos que van en el archivo de texto
             StringBuilder b = new StringBuilder();
+            contador++;
+          if(contador==1){
+              txt="Jugadores->";
+          }else{
+              txt="";
+          }  
             if (node.next != null) {
               //System.out.println(node.dato.toString()+"->"+node.next.dato.toString());
-                textos=textos+node.dato.toString()+"->"+node.next.dato.toString()+"\r\n";
+                textos=txt+textos+node.dato.toString()+"->"+node.next.dato.toString()+"\r\n";
                 //System.out.println(textos);
             }if(node.abajo!=null){
                 textos=textos+node.dato.toString()+"->"+node.abajo.dato.toString()+"\r\n";

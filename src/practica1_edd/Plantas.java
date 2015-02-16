@@ -16,8 +16,9 @@ public class Plantas extends javax.swing.JFrame {
      */
     public Plantas() {
         initComponents();
+        
     }
-
+          
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,6 +31,7 @@ public class Plantas extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        extras = new javax.swing.JButton();
         nombre = new javax.swing.JTextField();
         cantidad = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -60,6 +62,17 @@ public class Plantas extends javax.swing.JFrame {
         jLabel3.setText("Cantidad:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
+        extras.setBackground(new java.awt.Color(51, 51, 51));
+        extras.setFont(new java.awt.Font("Ravie", 1, 14)); // NOI18N
+        extras.setForeground(new java.awt.Color(255, 255, 255));
+        extras.setText("Aceptar");
+        extras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                extrasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(extras, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, -1, -1));
+
         nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nombreActionPerformed(evt);
@@ -79,20 +92,24 @@ public class Plantas extends javax.swing.JFrame {
     }//GEN-LAST:event_nombreActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        contador++;
+       
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void extrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extrasActionPerformed
+         contador++;
         String nom=nombre.getText().trim();
         String cant=cantidad.getText().trim();
         if(contador==1){
+           
            Inicio.ListaInformacion.InsertAtFront("Plantas");
-         //  
            Inicio.ListaInformacion.InsertAtBack(nom);
            Inicio.ListaInformacion.InsertAtBack(cant);
-        //   Inicio.ListaInformacion.unir("Zombies");
-          // Inicio.ListaInformacion.unir("Fredddd");
+
         }else{
             
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_extrasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -131,6 +148,7 @@ public class Plantas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cantidad;
+    private javax.swing.JButton extras;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

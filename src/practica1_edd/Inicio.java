@@ -6,6 +6,7 @@
 package practica1_edd;
 
 import java.awt.BorderLayout;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -99,7 +100,16 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_ZombisActionPerformed
 
     private void JuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JuegoActionPerformed
-         ListaInformacion.imprimir();
+         
+        if(!ListaInformacion.isEmpty())
+        {
+            Tablero ventana=new Tablero();
+            ventana.setVisible(true);
+            this.setVisible(false);
+        }else{
+            JOptionPane.showMessageDialog(null, "No se ha creado Los Usuarios");
+        }
+        ListaInformacion.imprimir();
     }//GEN-LAST:event_JuegoActionPerformed
 
     
