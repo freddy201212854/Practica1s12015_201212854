@@ -10,10 +10,10 @@ package practica1_edd;
  * @author KRATOS
  */
 public class ListaDoble {
-    static String nombres,tipos;
-    static int ataques,defensa,size;
+    static String nombres,tipos,imgs;
+    static int ataques,defensa,size,cont;
     NodoDoble cabeza;
-    
+    NodoDoble foto;
     public ListaDoble()
     {
         cabeza=null;
@@ -77,6 +77,7 @@ public class ListaDoble {
 
             while (n != null)
             {
+                
                 Personajes datos = (Personajes)n.dato;
 
                 if (datos.getNombre().equals(Nombre))
@@ -111,26 +112,5 @@ public class ListaDoble {
         n = n.adelante;
         }
     }
-      
-   /* public void atrasNodo(){
-        
-        if(contador==0){
-            contacto=cabeza;
-            contador++;
-        }
-        
-        if(contacto.atras!=null){
-            contacto=contacto.atras; 
-            System.out.println("Atras");
-           objContacto contact = (objContacto)contacto.dato;
-           VistaContactos.nombre.setText(contact.obtenerNombre());
-           VistaContactos.apellido.setText(contact.obtenerApellido());
-           VistaContactos.telefono.setText(""+contact.obtenerTelefono());
-           VistaContactos.direccion.setText(contact.obtenerDireccion());
-           System.out.println("Nombre: "+contact.obtenerNombre());
-           
-           
-        
-            
-}*/
+   
 }

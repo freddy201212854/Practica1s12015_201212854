@@ -6,6 +6,7 @@
 package practica1_edd;
 
 import java.net.URL;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
@@ -19,15 +20,18 @@ public class CrearPersonaje extends javax.swing.JFrame {
      * Creates new form CrearPersonaje
      */
    public static ListaDoble lista=new ListaDoble();
-   public static ListaDoble listaImg=new ListaDoble();
+   ArrayList <String> Img=new ArrayList();
+   int contador=0;
     public CrearPersonaje() {
         initComponents();
-        
-        ListaImagenes obj=new ListaImagenes("plantas.jpg");
-        ListaImagenes obj2=new ListaImagenes("zombies.jpg"); 
+              
+        Img.add("planta1.png");
+        Img.add("planta2.png");
+        Img.add("planta3.png");
+        Img.add("planta4.png");
 
-        listaImg.insertarCabezaLista(obj);
-        listaImg.insertarCabezaLista(obj2);
+      
+      
     }
     public void MostrarImagenes(String img)
     {
@@ -54,7 +58,7 @@ public class CrearPersonaje extends javax.swing.JFrame {
         modificar = new javax.swing.JButton();
         eliminar = new javax.swing.JButton();
         atras = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        adelante = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -126,11 +130,16 @@ public class CrearPersonaje extends javax.swing.JFrame {
         });
         getContentPane().add(atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, -1, -1));
 
-        jButton2.setBackground(new java.awt.Color(51, 51, 51));
-        jButton2.setFont(new java.awt.Font("Ravie", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText(">");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 100, -1, -1));
+        adelante.setBackground(new java.awt.Color(51, 51, 51));
+        adelante.setFont(new java.awt.Font("Ravie", 1, 18)); // NOI18N
+        adelante.setForeground(new java.awt.Color(255, 255, 255));
+        adelante.setText(">");
+        adelante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adelanteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(adelante, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 100, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 120, -1));
@@ -140,7 +149,7 @@ public class CrearPersonaje extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "Puntos Ataque", "Puntos Defensa", "Tipo Disparo"
+                "Nombre", "Puntos Ataque", "Puntos Defensa", "Tipo Disparo", "Imagen"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -148,7 +157,7 @@ public class CrearPersonaje extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 520, 130));
 
         imagen.setText("jLabel6");
-        getContentPane().add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, 110, 90));
+        getContentPane().add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, 120, 120));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 0, 0));
@@ -234,13 +243,8 @@ public class CrearPersonaje extends javax.swing.JFrame {
         jTable1.getTableHeader().setReorderingAllowed(false) ;
 
         DefaultTableModel modelo=(DefaultTableModel) jTable1.getModel();
-        // Estudiante op[]=new Estudiante[Listado.ListEstudiantes.size()];
         Object [] filas=new Object[modelo.getColumnCount()];
-        // String path="/imagenes/plantas.jpg";
-        //URL url=this.getClass().getResource(path);dffffsdfd
-        //ImageIcon icon=new ImageIcon(url);
-        //  imagen.setIcon(icon);
-      
+     
         filas[0]=nom;
         filas[1]=ataq;
         filas[2]=def;
@@ -270,8 +274,37 @@ public class CrearPersonaje extends javax.swing.JFrame {
     }//GEN-LAST:event_eliminarActionPerformed
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
+     
+        try{
+           contador--;
+        if(contador<Img.size()&&contador>=0){
+           System.out.println(Img.get(contador));
+           MostrarImagenes(Img.get(contador));
+        }if(contador<=0){
+            contador=0;
+        }
+        System.out.println("contador: "+contador);
 
+        }catch(Exception ex){
+            System.out.println(ex);
+        }
     }//GEN-LAST:event_atrasActionPerformed
+
+    private void adelanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adelanteActionPerformed
+        try{
+        if(contador<Img.size()){
+           System.out.println(Img.get(contador));
+           MostrarImagenes(Img.get(contador));
+            contador++;
+        }else if(contador==Img.size()){
+            contador=Img.size();
+        }
+          
+            System.out.println("contador: "+contador);
+        }catch(Exception ex){
+            System.out.println(ex);
+        }
+    }//GEN-LAST:event_adelanteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -309,13 +342,13 @@ public class CrearPersonaje extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton adelante;
     private javax.swing.JTextField ataque;
     private javax.swing.JButton atras;
     private javax.swing.JTextField defensa;
     private javax.swing.JButton eliminar;
     private javax.swing.JLabel imagen;
     private javax.swing.JButton insertar;
-    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
