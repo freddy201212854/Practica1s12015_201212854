@@ -12,7 +12,7 @@ package practica1_edd;
 public class ListNode {
     
     Object dato;
-    ListNode next,abajo;
+    ListNode next,abajo,jugador;
     
     public ListNode(Object dato)
     {
