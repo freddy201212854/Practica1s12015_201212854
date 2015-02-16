@@ -1,8 +1,8 @@
 digraph A{
-Plantas->Alx
+Plantas->Alejandro
 Plantas->Zombies
-Alx->78
-Zombies->lld
-lld->233
+Alejandro->5
+Zombies->Freddy
+Freddy->65
 
 }

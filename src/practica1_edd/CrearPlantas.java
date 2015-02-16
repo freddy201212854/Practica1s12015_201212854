@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author KRATOS
  */
-public class CrearPersonaje extends javax.swing.JFrame {
+public class CrearPlantas extends javax.swing.JFrame {
 
     /**
      * Creates new form CrearPersonaje
@@ -25,7 +25,7 @@ public class CrearPersonaje extends javax.swing.JFrame {
    public static ListaDoble lista=new ListaDoble();
    ArrayList <String> Img=new ArrayList();
    int contador=0;
-    public CrearPersonaje() {
+    public CrearPlantas() {
         initComponents();
               
         Img.add("planta1.png");
@@ -78,6 +78,7 @@ public class CrearPersonaje extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         Imag = new javax.swing.JLabel();
         result = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -197,6 +198,14 @@ public class CrearPersonaje extends javax.swing.JFrame {
         Imag.setForeground(new java.awt.Color(204, 0, 0));
         getContentPane().add(Imag, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, -1, -1));
         getContentPane().add(result, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, 130, 110));
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/portada3.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -338,6 +347,10 @@ public class CrearPersonaje extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_comboActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      lista.imprimir();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -355,20 +368,21 @@ public class CrearPersonaje extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CrearPersonaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CrearPlantas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CrearPersonaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CrearPlantas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CrearPersonaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CrearPlantas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CrearPersonaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CrearPlantas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CrearPersonaje().setVisible(true);
+                new CrearPlantas().setVisible(true);
             }
         });
     }
@@ -383,6 +397,7 @@ public class CrearPersonaje extends javax.swing.JFrame {
     private javax.swing.JButton eliminar;
     private javax.swing.JLabel imagen;
     private javax.swing.JButton insertar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
