@@ -13,7 +13,7 @@ import java.io.PrintWriter;
  * @author KRATOS
  */
 public class ListaDoble {
-    static String nombres,tipos,imgs,textos,textos2,textos3="Plantas";
+    static String nombres,tipos,imgs,textos,textos2="Zombies",textos3="Plantas";
     static int ataques,defensa,size,cont,contador=1;
     NodoDoble cabeza;
     NodoDoble foto;
@@ -168,6 +168,77 @@ public class ListaDoble {
            String dotPath="C:\\Users\\KRATOS\\Downloads\\Compressed\\release\\bin\\dot.exe"; 
            String fileInputPath="C:\\Users\\KRATOS\\Documents\\NetBeansProjects\\Practica1_EDD\\graph2.txt";
            String fileOutputPath="C:\\Users\\KRATOS\\Documents\\NetBeansProjects\\Practica1_EDD\\graph2.png";
+           String tParam="-Tjpg";
+           String tOParam="-o";
+           
+           
+           String[] cmd=new String[5];
+           cmd[0]=dotPath;
+           cmd[1]=tParam;
+           cmd[2]=fileInputPath;
+           cmd[3]=tOParam;
+           cmd[4]=fileOutputPath;
+           
+           Runtime rt=Runtime.getRuntime();
+           rt.exec(cmd);
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }finally{
+            
+        }
+    
+    }
+    //-------------------------------------------------------
+    public void imprimir2(){//imprime los datos de la lista generando su imagen
+      if(!isEmpty()){  
+            NodoDoble actual=cabeza;
+            while(actual!=null)
+            { 
+                contador++;
+                Personajes datos=(Personajes)actual.dato;            
+                textos2=textos2+"->"+datos.getNombre();               
+                actual=actual.adelante;                  
+            }
+       System.out.println(textos2);
+       generarArchivo2(textos2);
+       Generar2();
+       textos2="Zombies";
+        }else
+            System.out.println("Lista vacia");
+       
+    }
+   
+    public static void generarArchivo2(String texto)//genera el archivo para genera la imagen de la lista
+    {
+      FileWriter fichero = null;
+      PrintWriter pw = null;
+        try
+        {
+            fichero = new FileWriter("C:\\Users\\KRATOS\\Documents\\NetBeansProjects\\Practica1_EDD\\graph3.txt");
+            pw = new PrintWriter(fichero);
+ 
+            
+                pw.println("digraph A{"+"\r\n"+texto+"\r\n"+"}");
+ 
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+           try {
+           // Nuevamente aprovechamos el finally para 
+           // asegurarnos que se cierra el fichero.
+           if (null != fichero)
+              fichero.close();
+           } catch (Exception e2) {
+              e2.printStackTrace();
+           }
+        }
+    }
+    public static void Generar2()//Genera la imagen de la lista
+    {
+        try{
+           String dotPath="C:\\Users\\KRATOS\\Downloads\\Compressed\\release\\bin\\dot.exe"; 
+           String fileInputPath="C:\\Users\\KRATOS\\Documents\\NetBeansProjects\\Practica1_EDD\\graph3.txt";
+           String fileOutputPath="C:\\Users\\KRATOS\\Documents\\NetBeansProjects\\Practica1_EDD\\graph3.png";
            String tParam="-Tjpg";
            String tOParam="-o";
            

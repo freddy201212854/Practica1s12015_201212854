@@ -85,17 +85,15 @@ public class CrearPlantas extends javax.swing.JFrame {
         setTitle("Creando Plantas");
         setMinimumSize(new java.awt.Dimension(700, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        nombre.setText("jTextField1");
         getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 200, -1));
-
-        ataque.setText("jTextField2");
         getContentPane().add(ataque, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 200, -1));
 
-        defensa.setText("jTextField3");
+        defensa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                defensaActionPerformed(evt);
+            }
+        });
         getContentPane().add(defensa, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 200, -1));
-
-        tipo.setText("jTextField4");
         getContentPane().add(tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 200, -1));
 
         insertar.setBackground(new java.awt.Color(51, 51, 51));
@@ -199,13 +197,13 @@ public class CrearPlantas extends javax.swing.JFrame {
         getContentPane().add(Imag, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, -1, -1));
         getContentPane().add(result, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, 130, 110));
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Ver Grafica");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 440, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/portada3.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -214,10 +212,7 @@ public class CrearPlantas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
-        /*String path="/imagenes/zombies.jpg";
-        URL url=this.getClass().getResource(path);
-        ImageIcon icon=new ImageIcon(url);
-        imagen.setIcon(icon);*/
+       
         try{
          String nom=nombre.getText().trim();
          String ata=ataque.getText().trim();
@@ -350,6 +345,10 @@ public class CrearPlantas extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       lista.imprimir();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void defensaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defensaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_defensaActionPerformed
 
     /**
      * @param args the command line arguments
