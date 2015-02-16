@@ -7,7 +7,10 @@ package practica1_edd;
 
 import java.net.URL;
 import java.util.ArrayList;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -40,7 +43,13 @@ public class CrearPersonaje extends javax.swing.JFrame {
           ImageIcon icon=new ImageIcon(url);
           imagen.setIcon(icon);
     }
-    
+    public void MostrarImagenes2(String img)
+    {
+         String path="/imagenes/"+img;
+          URL url=this.getClass().getResource(path);
+          ImageIcon icon=new ImageIcon(url);
+          result.setIcon(icon);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -59,7 +68,7 @@ public class CrearPersonaje extends javax.swing.JFrame {
         eliminar = new javax.swing.JButton();
         atras = new javax.swing.JButton();
         adelante = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox();
+        combo = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         imagen = new javax.swing.JLabel();
@@ -67,6 +76,8 @@ public class CrearPersonaje extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        Imag = new javax.swing.JLabel();
+        result = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -141,8 +152,12 @@ public class CrearPersonaje extends javax.swing.JFrame {
         });
         getContentPane().add(adelante, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 100, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 120, -1));
+        combo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboActionPerformed(evt);
+            }
+        });
+        getContentPane().add(combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 120, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -155,8 +170,6 @@ public class CrearPersonaje extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 520, 130));
-
-        imagen.setText("jLabel6");
         getContentPane().add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, 120, 120));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -179,6 +192,11 @@ public class CrearPersonaje extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(204, 0, 0));
         jLabel5.setText("Tipo de Disparo:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
+
+        Imag.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Imag.setForeground(new java.awt.Color(204, 0, 0));
+        getContentPane().add(Imag, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, -1, -1));
+        getContentPane().add(result, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, 130, 110));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/portada3.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -244,13 +262,14 @@ public class CrearPersonaje extends javax.swing.JFrame {
 
         DefaultTableModel modelo=(DefaultTableModel) jTable1.getModel();
         Object [] filas=new Object[modelo.getColumnCount()];
-     
+             
         filas[0]=nom;
         filas[1]=ataq;
         filas[2]=def;
         filas[3]=tip;
+        filas[4]=Imag.getText();
+        combo.addItem(nom);
         modelo.addRow(filas);
-
     }//GEN-LAST:event_insertarActionPerformed
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
@@ -258,6 +277,7 @@ public class CrearPersonaje extends javax.swing.JFrame {
         try{
          String nom=nombre.getText().trim();  
          lista.eliminar(nom);
+         combo.removeItem(nom);
         DefaultTableModel modelo=(DefaultTableModel) jTable1.getModel();
               for (int i = 0; i < ListaDoble.size; i++) {
                   for(int j=0;j<4;j++){
@@ -279,6 +299,7 @@ public class CrearPersonaje extends javax.swing.JFrame {
            contador--;
         if(contador<Img.size()&&contador>=0){
            System.out.println(Img.get(contador));
+           Imag.setText(Img.get(contador));
            MostrarImagenes(Img.get(contador));
         }if(contador<=0){
             contador=0;
@@ -294,6 +315,7 @@ public class CrearPersonaje extends javax.swing.JFrame {
         try{
         if(contador<Img.size()){
            System.out.println(Img.get(contador));
+           Imag.setText(Img.get(contador));
            MostrarImagenes(Img.get(contador));
             contador++;
         }else if(contador==Img.size()){
@@ -305,6 +327,16 @@ public class CrearPersonaje extends javax.swing.JFrame {
             System.out.println(ex);
         }
     }//GEN-LAST:event_adelanteActionPerformed
+
+    private void comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboActionPerformed
+       // System.out.println(combo.getSelectedItem().toString());
+       for(int i=0;i<jTable1.getRowCount();i++){
+           if(jTable1.getValueAt(i,0).equals(combo.getSelectedItem().toString())){
+               System.out.println(jTable1.getValueAt(i,0));
+               MostrarImagenes2(jTable1.getValueAt(i, 4).toString());
+           }
+       }
+    }//GEN-LAST:event_comboActionPerformed
 
     /**
      * @param args the command line arguments
@@ -342,14 +374,15 @@ public class CrearPersonaje extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Imag;
     private javax.swing.JButton adelante;
     private javax.swing.JTextField ataque;
     private javax.swing.JButton atras;
+    private javax.swing.JComboBox combo;
     private javax.swing.JTextField defensa;
     private javax.swing.JButton eliminar;
     private javax.swing.JLabel imagen;
     private javax.swing.JButton insertar;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -359,6 +392,7 @@ public class CrearPersonaje extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JButton modificar;
     private javax.swing.JTextField nombre;
+    private javax.swing.JLabel result;
     private javax.swing.JTextField tipo;
     // End of variables declaration//GEN-END:variables
 }
