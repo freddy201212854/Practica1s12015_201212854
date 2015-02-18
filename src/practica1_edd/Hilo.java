@@ -5,6 +5,7 @@
  */
 package practica1_edd;
 
+import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,6 +17,7 @@ public class Hilo implements Runnable {
     static Thread objetoHilo;
     static int contador=0;
     boolean done=false;
+    Tablero t;
     public static void empezarHilo(){
         objetoHilo=new Thread(new Hilo());
      	objetoHilo.start();
@@ -30,12 +32,14 @@ public class Hilo implements Runnable {
     public void run() {
       while(!done){ 
        
-         
+       
           System.out.println(contador);
           //Tablero.prue.setText(String.valueOf(contador));
          // Tablero.label.setText(String.valueOf(contador));
-         // Tablero.p();
-          try {
+        String path="/imagenes/planta1.png";
+       URL url=this.getClass().getResource(path); 
+       Tablero.p(url);
+       try {
               objetoHilo.sleep(1000);
           } catch (InterruptedException ex) {
               Logger.getLogger(Hilo.class.getName()).log(Level.SEVERE, null, ex);

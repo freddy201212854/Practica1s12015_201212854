@@ -13,7 +13,7 @@ import java.io.PrintWriter;
  * @author KRATOS
  */
 public class ListaDoble {
-    static String nombres,tipos,imgs,textos,textos2="Zombies",textos3="Plantas";
+    static String nombres,tipos,imgs,textos,textos2="Zombies",textos3="Plantas",nomPersonaje;
     static int ataques,defensa,size,cont,contador=1;
     NodoDoble cabeza;
     NodoDoble foto;

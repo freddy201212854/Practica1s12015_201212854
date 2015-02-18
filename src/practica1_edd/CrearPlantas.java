@@ -270,8 +270,8 @@ public class CrearPlantas extends javax.swing.JFrame {
         int  ataq=Integer.valueOf(ataque.getText().trim());
         int  def=Integer.valueOf(defensa.getText().trim());
         String tip=tipo.getText().trim();
-
-        Personajes objeto=new Personajes(nom,ataq,def,tip);
+        String img=Imag.getText().toString();
+        Personajes objeto=new Personajes(nom,ataq,def,tip,img);
         lista.insertarCabezaLista(objeto);
         lista.visualizar();
         jTable1.getTableHeader().setReorderingAllowed(false) ;

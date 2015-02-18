@@ -15,13 +15,14 @@ public class Personajes {
     int PtsAtaque;
     int PtsDefensa;
     String TipoDisparo;
-    
-    public Personajes(String Nombre,int PtsAtaque,int PtsDefensa,String TipoDisparo)
+    String imagen;
+    public Personajes(String Nombre,int PtsAtaque,int PtsDefensa,String TipoDisparo,String imagen)
     {
         this.Nombre=Nombre;
         this.PtsAtaque=PtsAtaque;
         this.PtsDefensa=PtsDefensa;
         this.TipoDisparo=TipoDisparo;
+        this.imagen=imagen;
     }
     
     public String getNombre()
@@ -55,5 +56,13 @@ public class Personajes {
     public void setDisparo(String disparo)
     {
         this.TipoDisparo=disparo;
+    }
+    public String getImagen()
+    {
+        return this.Nombre;
+    }
+    public void setImagen(String imagen)
+    {
+        this.Nombre=imagen;
     }
 }

@@ -248,8 +248,8 @@ public class CrearZombies extends javax.swing.JFrame {
         int  ataq=Integer.valueOf(ataque.getText().trim());
         int  def=Integer.valueOf(defensa.getText().trim());
         String tip=tipo.getText().trim();
-
-        Personajes objeto=new Personajes(nom,ataq,def,tip);
+        String img=Imag.getText();
+        Personajes objeto=new Personajes(nom,ataq,def,tip,img);
         lista2.insertarCabezaLista(objeto);
         lista2.visualizar();
         jTable1.getTableHeader().setReorderingAllowed(false) ;
