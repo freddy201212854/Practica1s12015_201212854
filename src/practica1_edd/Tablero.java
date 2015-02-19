@@ -48,22 +48,7 @@ public class Tablero extends javax.swing.JFrame {
                 gui.add(scroll, BorderLayout.CENTER);
                 JButton addLabel = new JButton("Add Label");
                 gui.add(addLabel, BorderLayout.NORTH);
-                    int counter = 0;
-                    /*     String path2="/imagenes/planta1.png";
-          URL url2=this.getClass().getResource(path2);
-          ImageIcon icon2=new ImageIcon(url2);
-                        JLabel l=new JLabel("fd");
-                        l.setBounds(10, 10,100, 100);
-                        l.setIcon(icon2);
-                        panel.add(l);
-                        panel.revalidate();
-                        int height = (int)panel.getPreferredSize().getHeight();
-                        Rectangle rect = new Rectangle(0,height,10,10);
-                        panel.scrollRectToVisible(rect);
-                    
-               // JOptionPane.showMessageDialog(null, gui);
-                */
-                
+                  
                 add(gui);
   
     }

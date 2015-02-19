@@ -11,6 +11,7 @@ package practica1_edd;
  */
 public class Plantas extends javax.swing.JFrame {
    int contador=0;
+   public static int Cantidad=0;
     /**
      * Creates new form Plantas
      */
@@ -99,6 +100,7 @@ public class Plantas extends javax.swing.JFrame {
          contador++;
         String nom=nombre.getText().trim();
         String cant=cantidad.getText().trim();
+        Cantidad=Integer.valueOf(cant);
         if(contador==1){
            
            Inicio.ListaInformacion.InsertAtFront("Plantas");

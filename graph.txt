@@ -1,8 +1,8 @@
 digraph A{
-Jugadores->Plantas->a
+Jugadores->Plantas->d
 Plantas->Zombies
-a->4
-Zombies->b
-b->43
+d->4
+Zombies->d2
+d2->2
 
 }
