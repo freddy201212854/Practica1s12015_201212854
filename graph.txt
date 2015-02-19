@@ -3,6 +3,6 @@ Jugadores->Plantas->a
 Plantas->Zombies
 a->4
 Zombies->b
-b->5
+b->43
 
 }

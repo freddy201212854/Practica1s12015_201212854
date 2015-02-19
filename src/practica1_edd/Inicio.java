@@ -103,8 +103,8 @@ public class Inicio extends javax.swing.JFrame {
          
         if(!ListaInformacion.isEmpty())
         {
-          //  Tablero ventana=new Tablero();
-           // ventana.setVisible(true);
+           Tablero ventana=new Tablero();
+           ventana.setVisible(true);
             this.setVisible(false);
         }else{
             JOptionPane.showMessageDialog(null, "No se ha creado Los Usuarios");

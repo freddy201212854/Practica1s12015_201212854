@@ -17,6 +17,7 @@ public class ListaDoble {
     static int ataques,defensa,size,cont,contador=1;
     NodoDoble cabeza;
     NodoDoble foto;
+    
     public ListaDoble()
     {
         cabeza=null;
@@ -73,7 +74,7 @@ public class ListaDoble {
                     else
                         // último nodo
                         actual.atras.adelante = null;
-                actual = null;
+                        actual = null;
             }
         }
         public void editar(String Nombre,int PtsAtaque,int PtsDefensa,String TipoDisparo)
@@ -112,12 +113,15 @@ public class ListaDoble {
         System.out.print("nombre: "+datos.getNombre()+" ");
         System.out.print("ataque: "+datos.getAtaque()+" ");
         System.out.print("defensa: "+datos.getDefensa()+" ");
-        System.out.println("Tipo: "+datos.getDisparo());
-
+        System.out.print("Tipo: "+datos.getDisparo()+" ");
+        System.out.println("Tipo: "+datos.getImagen());
 
         n = n.adelante;
         }
     }
+     public String nomPersonaje(){
+         return nomPersonaje;
+     }
     public void imprimir(){//imprime los datos de la lista generando su imagen
       if(!isEmpty()){  
             NodoDoble actual=cabeza;

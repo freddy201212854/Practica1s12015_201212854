@@ -32,13 +32,18 @@ public class Hilo implements Runnable {
     public void run() {
       while(!done){ 
        
+       CrearPlantas.lista.visualizar();
        
           System.out.println(contador);
           //Tablero.prue.setText(String.valueOf(contador));
          // Tablero.label.setText(String.valueOf(contador));
-        String path="/imagenes/planta1.png";
-       URL url=this.getClass().getResource(path); 
-       Tablero.p(url);
+          if(contador<CrearPlantas.imagenes.size()){
+            System.out.println(CrearPlantas.imagenes.get(contador));
+            MontarImagenes(CrearPlantas.imagenes.get(contador));
+          }else if(contador==CrearPlantas.imagenes.size()){
+              objetoHilo.suspend();
+          }
+       
        try {
               objetoHilo.sleep(1000);
           } catch (InterruptedException ex) {
@@ -50,6 +55,13 @@ public class Hilo implements Runnable {
 	
 	
       }
+    public void MontarImagenes(String img)
+    {
+        
+            String path="/imagenes/"+img;
+            URL url=this.getClass().getResource(path); 
+            Tablero.p(url);
+    }
     
     
     

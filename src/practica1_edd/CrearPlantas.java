@@ -7,10 +7,8 @@ package practica1_edd;
 
 import java.net.URL;
 import java.util.ArrayList;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.*;
+
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -24,6 +22,7 @@ public class CrearPlantas extends javax.swing.JFrame {
      */
    public static ListaDoble lista=new ListaDoble();
    ArrayList <String> Img=new ArrayList();
+   public static ArrayList<String>imagenes=new ArrayList();
    int contador=0;
     public CrearPlantas() {
         initComponents();
@@ -270,7 +269,7 @@ public class CrearPlantas extends javax.swing.JFrame {
         int  ataq=Integer.valueOf(ataque.getText().trim());
         int  def=Integer.valueOf(defensa.getText().trim());
         String tip=tipo.getText().trim();
-        String img=Imag.getText().toString();
+        String img=Imag.getText();
         Personajes objeto=new Personajes(nom,ataq,def,tip,img);
         lista.insertarCabezaLista(objeto);
         lista.visualizar();
@@ -363,7 +362,11 @@ public class CrearPlantas extends javax.swing.JFrame {
     }//GEN-LAST:event_defensaActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         CrearZombies ventana=new CrearZombies();
+         
+          for(int i=0;i<jTable1.getRowCount();i++){
+             imagenes.add(jTable1.getValueAt(i, 4).toString());
+          }
+        CrearZombies ventana=new CrearZombies();
          ventana.setVisible(true);
          this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
