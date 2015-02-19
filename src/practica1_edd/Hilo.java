@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  */
 public class Hilo implements Runnable {
     static Thread objetoHilo;
-    static int contador=0;
+    static int contador=0,CantPersonajes;
     boolean done=false;
     Tablero t;
     public static void empezarHilo(){
@@ -41,6 +41,7 @@ public class Hilo implements Runnable {
             System.out.println(CrearPlantas.imagenes.get(contador));
             MontarImagenes(CrearPlantas.imagenes.get(contador));
           }else if(contador==CrearPlantas.imagenes.size()){
+              
               objetoHilo.suspend();
           }
        
@@ -51,20 +52,12 @@ public class Hilo implements Runnable {
           }
          contador++;
          }
-	
-	
-	
       }
     public void MontarImagenes(String img)
     {
-        
             String path="/imagenes/"+img;
             URL url=this.getClass().getResource(path); 
             Tablero.p(url);
     }
-    
-    
-    
-    
     
 }
