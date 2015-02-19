@@ -114,7 +114,7 @@ public class ListaEnlazada {
       PrintWriter pw = null;
         try
         {
-            fichero = new FileWriter("C:\\Users\\KRATOS\\Documents\\NetBeansProjects\\Practica1_EDD\\graph.txt");
+            fichero = new FileWriter("C:\\Users\\freddy\\Documents\\NetBeansProjects\\Practica1_EDD\\Jugadores.txt");
             pw = new PrintWriter(fichero);
  
             
@@ -136,9 +136,9 @@ public class ListaEnlazada {
     public static void Generar()//Genera la imagen de la lista
     {
         try{
-           String dotPath="C:\\Users\\KRATOS\\Downloads\\Compressed\\release\\bin\\dot.exe"; 
-           String fileInputPath="C:\\Users\\KRATOS\\Documents\\NetBeansProjects\\Practica1_EDD\\graph.txt";
-           String fileOutputPath="C:\\Users\\KRATOS\\Documents\\NetBeansProjects\\Practica1_EDD\\graph.png";
+           String dotPath="C:\\Graphviz\\release\\bin\\dot.exe"; 
+           String fileInputPath="C:\\Users\\freddy\\Documents\\NetBeansProjects\\Practica1_EDD\\Jugadores.txt";
+           String fileOutputPath="C:\\Users\\freddy\\Documents\\NetBeansProjects\\Practica1_EDD\\Jugadores.png";
            String tParam="-Tjpg";
            String tOParam="-o";
            

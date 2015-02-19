@@ -1,8 +1,0 @@
-digraph A{
-Jugadores->Plantas->d
-Plantas->Zombies
-d->4
-Zombies->d2
-d2->2
-
-}

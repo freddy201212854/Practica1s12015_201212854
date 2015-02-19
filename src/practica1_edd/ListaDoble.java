@@ -147,7 +147,7 @@ public class ListaDoble {
       PrintWriter pw = null;
         try
         {
-            fichero = new FileWriter("C:\\Users\\KRATOS\\Documents\\NetBeansProjects\\Practica1_EDD\\graph2.txt");
+            fichero = new FileWriter("C:\\Users\\freddy\\Documents\\NetBeansProjects\\Practica1_EDD\\CatalogoPlanta.txt");
             pw = new PrintWriter(fichero);
  
             
@@ -169,9 +169,9 @@ public class ListaDoble {
     public static void Generar()//Genera la imagen de la lista
     {
         try{
-           String dotPath="C:\\Users\\KRATOS\\Downloads\\Compressed\\release\\bin\\dot.exe"; 
-           String fileInputPath="C:\\Users\\KRATOS\\Documents\\NetBeansProjects\\Practica1_EDD\\graph2.txt";
-           String fileOutputPath="C:\\Users\\KRATOS\\Documents\\NetBeansProjects\\Practica1_EDD\\graph2.png";
+           String dotPath="C:\\Graphviz\\release\\bin\\dot.exe"; 
+           String fileInputPath="C:\\Users\\freddy\\Documents\\NetBeansProjects\\Practica1_EDD\\CatalogoPlanta.txt";
+           String fileOutputPath="C:\\Users\\freddy\\Documents\\NetBeansProjects\\Practica1_EDD\\CatalogoPlanta.png";
            String tParam="-Tjpg";
            String tOParam="-o";
            
@@ -218,7 +218,7 @@ public class ListaDoble {
       PrintWriter pw = null;
         try
         {
-            fichero = new FileWriter("C:\\Users\\KRATOS\\Documents\\NetBeansProjects\\Practica1_EDD\\graph3.txt");
+            fichero = new FileWriter("C:\\Users\\freddy\\Documents\\NetBeansProjects\\Practica1_EDD\\CatalogoZombie.txt");
             pw = new PrintWriter(fichero);
  
             
@@ -240,9 +240,9 @@ public class ListaDoble {
     public static void Generar2()//Genera la imagen de la lista
     {
         try{
-           String dotPath="C:\\Users\\KRATOS\\Downloads\\Compressed\\release\\bin\\dot.exe"; 
-           String fileInputPath="C:\\Users\\KRATOS\\Documents\\NetBeansProjects\\Practica1_EDD\\graph3.txt";
-           String fileOutputPath="C:\\Users\\KRATOS\\Documents\\NetBeansProjects\\Practica1_EDD\\graph3.png";
+           String dotPath="C:\\Graphviz\\release\\bin\\dot.exe"; 
+           String fileInputPath="C:\\Users\\freddy\\Documents\\NetBeansProjects\\Practica1_EDD\\CatalogoZombie.txt";
+           String fileOutputPath="C:\\Users\\freddy\\Documents\\NetBeansProjects\\Practica1_EDD\\CatalagoZombie.png";
            String tParam="-Tjpg";
            String tOParam="-o";
            
