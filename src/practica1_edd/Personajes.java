@@ -59,10 +59,10 @@ public class Personajes {
     }
     public String getImagen()
     {
-        return this.Nombre;
+        return this.imagen;
     }
     public void setImagen(String imagen)
     {
-        this.Nombre=imagen;
+        this.imagen=imagen;
     }
 }
