@@ -33,22 +33,20 @@ public class Hilo implements Runnable {
       
       while(!done){ 
        
-          
+         int random=(int) (Math.random()*CrearPlantas.imagenes.size());
+         int n=random+1;
+          System.out.println("random"+random);
       // CrearPlantas.lista.visualizar();
-          System.out.println(contad);
-          System.out.println("Perosonajes: "+CantPersonajes+" CantidadTotal"+Plantas.Cantidad);
+         // System.out.println(contad);
+          //System.out.println("Perosonajes: "+CantPersonajes+" CantidadTotal"+Plantas.Cantidad);
           //Tablero.prue.setText(String.valueOf(contador));
          // Tablero.label.setText(String.valueOf(contador));
           if(contad<CrearPlantas.imagenes.size()&&contad!=-1){
-            System.out.println(CrearPlantas.imagenes.get(contad));
-            MontarImagenes(CrearPlantas.imagenes.get(contad));
+           // System.out.println(CrearPlantas.imagenes.get(contad));
+            MontarImagenes(CrearPlantas.imagenes.get(random));
           }else if(contad==CrearPlantas.imagenes.size()){
               
-             // if(CantPersonajes<Plantas.Cantidad){
-                  contad=-1;
-              //}
-              //objetoHilo.suspend();
-              
+                  contad=-1;         
           }if(CantPersonajes-1==Plantas.Cantidad){
               objetoHilo.suspend();
           }
