@@ -35,9 +35,11 @@ public class Hilo implements Runnable {
        
          int random=(int) (Math.random()*CrearPlantas.imagenes.size());
          int n=random+1;
-          System.out.println("cantidad: "+Plantas.Cantidad+"contadorPer: "+(CantPersonajes)+"cont: "+contad);     
+         // System.out.println("cantidad: "+Plantas.Cantidad+"contadorPer: "+(CantPersonajes)+"cont: "+contad);
+         
           if(contad<CrearPlantas.imagenes.size()&&contad!=-1){
             MontarImagenes(CrearPlantas.imagenes.get(random));
+            MontarImagenesZombies("zombies1.png");
           }if(contad==CrearPlantas.imagenes.size()){
               
                   contad=-1;         
@@ -45,7 +47,7 @@ public class Hilo implements Runnable {
               //objetoHilo.suspend();
               done=true;
           }
-       
+          
        try {
               objetoHilo.sleep(1000);
           } catch (InterruptedException ex) {
@@ -60,8 +62,13 @@ public class Hilo implements Runnable {
             String path="/imagenes/"+img;
             URL url=this.getClass().getResource(path); 
             Tablero.p(url);
+           // Tablero.pZombie(url);
+    }
+   public void MontarImagenesZombies(String img)
+    {
+            String path="/imagenes/"+img;
+            URL url=this.getClass().getResource(path); 
             Tablero.pZombie(url);
     }
-   
     
 }

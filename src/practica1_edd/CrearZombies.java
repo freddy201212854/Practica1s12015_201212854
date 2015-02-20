@@ -347,7 +347,7 @@ public class CrearZombies extends javax.swing.JFrame {
              NombresPanel.add(jTable1.getValueAt(i, 0).toString());
           }   
         
-        this.dispose();
+        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

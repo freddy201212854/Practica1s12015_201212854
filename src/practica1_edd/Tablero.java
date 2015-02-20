@@ -17,12 +17,10 @@ public class Tablero extends javax.swing.JFrame {
    JLabel lab,lab2;
    static JPanel panel,panel2;
     int contador=100;
-    static URL url;
     public Tablero() {
         initComponents();
         
-        Hilo.empezarHilo();
-       
+          Hilo.empezarHilo();
           String path="/imagenes/planta1.png";
           URL url=this.getClass().getResource(path);
           ImageIcon icon=new ImageIcon(url);
@@ -42,6 +40,8 @@ public class Tablero extends javax.swing.JFrame {
                 gui.add(addLabel, BorderLayout.NORTH);
                 add(gui);
                 
+                //HiloZombie.empezarHilo2();
+
                 JPanel gui2 = new JPanel(new BorderLayout(3,3));
                 gui2.setBounds(1085,70,200,600);
                 panel2 = new JPanel(new GridLayout(0,1));
@@ -75,10 +75,10 @@ public class Tablero extends javax.swing.JFrame {
      
      public static void pZombie(URL url)
     {
-      JLabel l=new JLabel();
-      l.setBounds(10, 10,100, 100);
-      MostrarImagenesZombie(l,url);
-      panel2.add(l);
+      JLabel l2=new JLabel();
+      l2.setBounds(10, 10,100, 100);
+      MostrarImagenesZombie(l2,url);
+      panel2.add(l2);
       panel2.revalidate();
       int height = (int)panel2.getPreferredSize().getHeight();
       Rectangle rect = new Rectangle(0,height,10,10);

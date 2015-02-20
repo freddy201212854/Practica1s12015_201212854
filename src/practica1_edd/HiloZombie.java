@@ -14,34 +14,46 @@ import java.util.logging.Logger;
  * @author freddy
  */
 public class HiloZombie implements Runnable{
-    static Thread objetoHilo;
-    static int contad=-1,CantPersonajes=-1;
+    static Thread objetoHilo2;
+    static int contad2=0,CantPersonajes2;
     boolean done=false;
     Tablero t;
-    public static void empezarHilo(){
-        objetoHilo=new Thread(new Hilo());
-     	objetoHilo.start();
+    public static void empezarHilo2(){
+        objetoHilo2=new Thread(new Hilo());
+     	objetoHilo2.start();
     }
     public static void suspenderHilo2(){
-        objetoHilo.suspend();
+        objetoHilo2.suspend();
     }
     public static void resumirHilo2(){
-        objetoHilo.resume();
+        objetoHilo2.resume();
     }
     @Override
     public void run() {
       
       while(!done){ 
        
-         MontarImagenes("zombies1.png");
-       
+         int random=(int) (Math.random()*CrearZombies.imagenesZombies.size());
+         int n=random+1;
+         // System.out.println("cantidad: "+Plantas.Cantidad+"contadorPer: "+(CantPersonajes)+"cont: "+contad);
+         
+          if(contad2<CrearZombies.imagenesZombies.size()&&contad2!=-1){
+            MontarImagenes(CrearZombies.imagenesZombies.get(random));
+          }if(contad2==CrearZombies.imagenesZombies.size()){
+              
+                  contad2=-1;         
+          }if(CantPersonajes2-2==Zombies.CantidadZombie){
+              //objetoHilo.suspend();
+              done=true;
+          }
+          
        try {
-              objetoHilo.sleep(1000);
+              objetoHilo2.sleep(1000);
           } catch (InterruptedException ex) {
               Logger.getLogger(Hilo.class.getName()).log(Level.SEVERE, null, ex);
           }
-         contad++;
-         CantPersonajes++;
+         contad2++;
+         CantPersonajes2++;
          }
       }
     public void MontarImagenes(String img)
