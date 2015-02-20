@@ -22,6 +22,7 @@ public class CrearPlantas extends javax.swing.JFrame {
      */
    public static ListaDoble lista=new ListaDoble();
    ArrayList <String> Img=new ArrayList();
+  public static ArrayList <String> NombresPanel=new ArrayList();
    public static ArrayList<String>imagenes=new ArrayList();
    int contador=0;
     public CrearPlantas() {
@@ -31,9 +32,6 @@ public class CrearPlantas extends javax.swing.JFrame {
         Img.add("planta2.png");
         Img.add("planta3.png");
         Img.add("planta4.png");
-
-      
-      
     }
     public void MostrarImagenes(String img)
     {
@@ -365,6 +363,7 @@ public class CrearPlantas extends javax.swing.JFrame {
          
           for(int i=0;i<jTable1.getRowCount();i++){
              imagenes.add(jTable1.getValueAt(i, 4).toString());
+             NombresPanel.add(jTable1.getValueAt(i, 0).toString());
           }
         CrearZombies ventana=new CrearZombies();
          ventana.setVisible(true);

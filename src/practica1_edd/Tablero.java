@@ -5,17 +5,9 @@
  */
 package practica1_edd;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.Rectangle;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
 import java.net.URL;
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 
 /**
  *
@@ -23,7 +15,7 @@ import javax.swing.border.LineBorder;
  */
 public class Tablero extends javax.swing.JFrame {
    JLabel lab,lab2;
-   static JPanel panel;
+   static JPanel panel,panel2;
     int contador=100;
     static URL url;
     public Tablero() {
@@ -41,30 +33,58 @@ public class Tablero extends javax.swing.JFrame {
               add(lab);
          
                 JPanel gui = new JPanel(new BorderLayout(3,3));
-                gui.setBounds(10,70,300,300);
+                gui.setBounds(50,70,200,600);
                 panel = new JPanel(new GridLayout(0,1));
                 JScrollPane scroll = new JScrollPane(panel);
                 scroll.setPreferredSize(new Dimension(100,100));
                 gui.add(scroll, BorderLayout.CENTER);
-                JButton addLabel = new JButton("Add Label");
+                JLabel addLabel = new JLabel("Add Label");
                 gui.add(addLabel, BorderLayout.NORTH);
-                  
                 add(gui);
+                
+                JPanel gui2 = new JPanel(new BorderLayout(3,3));
+                gui2.setBounds(1085,70,200,600);
+                panel2 = new JPanel(new GridLayout(0,1));
+                JScrollPane scroll2 = new JScrollPane(panel2);
+                scroll2.setPreferredSize(new Dimension(100,100));
+                gui2.add(scroll2, BorderLayout.CENTER);
+                JLabel addLabel2 = new JLabel("Add Label");
+                gui2.add(addLabel2, BorderLayout.NORTH);
+                  
+                add(gui2);
+                
   
     }
     public static void p(URL url)
     {
-                   
-                        JLabel l=new JLabel("fd");
-                        l.setBounds(10, 10,100, 100);
-                        MostrarImagenes(l,url);
-                        panel.add(l);
-                        panel.revalidate();
-                        int height = (int)panel.getPreferredSize().getHeight();
-                        Rectangle rect = new Rectangle(0,height,10,10);
-                        panel.scrollRectToVisible(rect); 
+      JLabel l=new JLabel();
+      l.setBounds(10, 10,100, 100);
+      MostrarImagenes(l,url);
+      panel.add(l);
+      panel.revalidate();
+      int height = (int)panel.getPreferredSize().getHeight();
+      Rectangle rect = new Rectangle(0,height,10,10);
+      panel.scrollRectToVisible(rect); 
     }
      public static void MostrarImagenes(JLabel imagen,URL url)
+    {
+         
+          ImageIcon icon=new ImageIcon(url);
+          imagen.setIcon(icon);
+    }
+     
+     public static void pZombie(URL url)
+    {
+      JLabel l=new JLabel();
+      l.setBounds(10, 10,100, 100);
+      MostrarImagenesZombie(l,url);
+      panel2.add(l);
+      panel2.revalidate();
+      int height = (int)panel2.getPreferredSize().getHeight();
+      Rectangle rect = new Rectangle(0,height,10,10);
+      panel2.scrollRectToVisible(rect); 
+    }
+     public static void MostrarImagenesZombie(JLabel imagen,URL url)
     {
          
           ImageIcon icon=new ImageIcon(url);
@@ -80,7 +100,7 @@ public class Tablero extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(600, 700));
+        setMinimumSize(new java.awt.Dimension(300, 700));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

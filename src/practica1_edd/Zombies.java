@@ -11,6 +11,7 @@ package practica1_edd;
  */
 public class Zombies extends javax.swing.JFrame {
    int contador=0;
+   static int CantidadZombie=0;
     /**
      * Creates new form Zombies
      */
@@ -87,6 +88,7 @@ public class Zombies extends javax.swing.JFrame {
      contador++;
         String nom=nombre.getText().trim();
         String cant=cantidad.getText().trim();
+        CantidadZombie=Integer.valueOf(cant);
         if(contador==1){
            Inicio.ListaInformacion.unir("Zombies");
            Inicio.ListaInformacion.unir(nom);

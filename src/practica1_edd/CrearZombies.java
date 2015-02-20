@@ -21,6 +21,8 @@ public class CrearZombies extends javax.swing.JFrame {
      */
     public static ListaDoble lista2=new ListaDoble();
    ArrayList <String> Img=new ArrayList();
+    public static ArrayList <String> NombresPanel=new ArrayList();
+   public static ArrayList<String>imagenesZombies=new ArrayList();
    int contador=0;
     public CrearZombies() {
         initComponents();
@@ -340,7 +342,12 @@ public class CrearZombies extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-           this.dispose();
+        for(int i=0;i<jTable1.getRowCount();i++){
+             imagenesZombies.add(jTable1.getValueAt(i, 4).toString());
+             NombresPanel.add(jTable1.getValueAt(i, 0).toString());
+          }   
+        
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

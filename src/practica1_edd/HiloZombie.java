@@ -11,11 +11,11 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author KRATOS
+ * @author freddy
  */
-public class Hilo implements Runnable {
+public class HiloZombie implements Runnable{
     static Thread objetoHilo;
-    static int contad=-1,CantPersonajes;
+    static int contad=-1,CantPersonajes=-1;
     boolean done=false;
     Tablero t;
     public static void empezarHilo(){
@@ -33,18 +33,7 @@ public class Hilo implements Runnable {
       
       while(!done){ 
        
-         int random=(int) (Math.random()*CrearPlantas.imagenes.size());
-         int n=random+1;
-          System.out.println("cantidad: "+Plantas.Cantidad+"contadorPer: "+(CantPersonajes)+"cont: "+contad);     
-          if(contad<CrearPlantas.imagenes.size()&&contad!=-1){
-            MontarImagenes(CrearPlantas.imagenes.get(random));
-          }if(contad==CrearPlantas.imagenes.size()){
-              
-                  contad=-1;         
-          }if(CantPersonajes-2==Plantas.Cantidad){
-              //objetoHilo.suspend();
-              done=true;
-          }
+         MontarImagenes("zombies1.png");
        
        try {
               objetoHilo.sleep(1000);
@@ -59,9 +48,7 @@ public class Hilo implements Runnable {
     {
             String path="/imagenes/"+img;
             URL url=this.getClass().getResource(path); 
-            Tablero.p(url);
             Tablero.pZombie(url);
     }
    
-    
 }
