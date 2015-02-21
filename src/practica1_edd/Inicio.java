@@ -18,6 +18,8 @@ public class Inicio extends javax.swing.JFrame {
      * Creates new form Inicio
      */
     public static ListaEnlazada ListaInformacion=new ListaEnlazada();
+    public static ListaEnlazada ListaPilaZombies=new ListaEnlazada();
+    public static ListaEnlazada ListaColaPlantas=new ListaEnlazada();
     public Inicio() {
         initComponents();
        
@@ -81,6 +83,11 @@ public class Inicio extends javax.swing.JFrame {
         Eliminar_Juego.setFont(new java.awt.Font("Ravie", 1, 18)); // NOI18N
         Eliminar_Juego.setForeground(new java.awt.Color(255, 255, 255));
         Eliminar_Juego.setText("ELIMINAR DATOS");
+        Eliminar_Juego.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Eliminar_JuegoActionPerformed(evt);
+            }
+        });
         getContentPane().add(Eliminar_Juego, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/portada.jpg"))); // NOI18N
@@ -105,12 +112,16 @@ public class Inicio extends javax.swing.JFrame {
         {
            Tablero ventana=new Tablero();
            ventana.setVisible(true);
-            this.setVisible(false);
+           // this.setVisible(false);
         }else{
             JOptionPane.showMessageDialog(null, "No se ha creado Los Usuarios");
         }
         ListaInformacion.imprimir();
     }//GEN-LAST:event_JuegoActionPerformed
+
+    private void Eliminar_JuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Eliminar_JuegoActionPerformed
+         ListaColaPlantas.imprimirCola();
+    }//GEN-LAST:event_Eliminar_JuegoActionPerformed
 
     
     /**

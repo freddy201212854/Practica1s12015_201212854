@@ -32,18 +32,21 @@ public class Hilo implements Runnable {
     public void run() {
       
       while(!done){ 
-       
+       try{
          //int random=(int) (Math.random()*CrearPlantas.imagenes.size());
          //int random2=(int) (Math.random()*CrearZombies.imagenesZombies.size());
          // System.out.println("cantidad: "+Plantas.Cantidad+"contadorPer: "+(CantPersonajes)+"cont: "+contad);
             if(contad<CrearPlantas.imagenes.size()&&contad!=-1){
                int random=(int) (Math.random()*CrearPlantas.imagenes.size());
                MontarImagenes(CrearPlantas.imagenes.get(random));
+               CrearPlantas.NombresPanel.get(random);
+               Inicio.ListaColaPlantas.InsertAtFront(CrearPlantas.NombresPanel.get(random));
             //MontarImagenesZombies("zombies1.png");
             }if(contad2<CrearZombies.imagenesZombies.size()&&contad2!=-1)
             {
                int random2=(int) (Math.random()*CrearZombies.imagenesZombies.size());
                MontarImagenesZombies(CrearZombies.imagenesZombies.get(random2));
+               Inicio.ListaPilaZombies.InsertAtBack(CrearZombies.NombresPanel.get(random2));
             }         
          
           if(Zombies.CantidadZombie<Plantas.Cantidad)
@@ -86,23 +89,24 @@ public class Hilo implements Runnable {
             {
                done=true;
             }
-          }
-       /*   if(contad==CrearPlantas.imagenes.size()){ 
-              
-                  contad=-1;
-          }
-          if(contad2==CrearZombies.imagenesZombies.size())
+          }else if(Plantas.Cantidad==Zombies.CantidadZombie)
           {
-            contad2=-1;
-          }
-          if(CantPersonajes-2==Plantas.Cantidad)
-          {
+                             System.out.println("Plantas Cant: "+Plantas.Cantidad+" CantPers: "+CantPersonajes);
+
+            if(contad==CrearPlantas.imagenes.size()-1){ 
+               contad=-1;
+            }
+            if(contad2==CrearZombies.imagenesZombies.size()-1)
+            {
+                contad2=-1;
+            }
+           
+            if(Plantas.Cantidad==CantPersonajes)
+            {
               done=true;
+            }
+            
           }
-          if(CantPersonajes2==Zombies.CantidadZombie){
-              contad2=Zombies.CantidadZombie+2;
-          }
-         */
           
        try {
               objetoHilo.sleep(1000);
@@ -113,7 +117,10 @@ public class Hilo implements Runnable {
          CantPersonajes++;
          CantPersonajes2++;
          contad2++;
+         }catch(Exception ex){
+             System.out.println("Errores de Panel");
          }
+      }
       }
     public void MontarImagenes(String img)
     {

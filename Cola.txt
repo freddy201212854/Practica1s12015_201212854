@@ -1,0 +1,11 @@
+digraph A{
+graph [rankdir = "LR"];
+node [fontsize = "16" shape = "shape"];
+planta2->planta2
+planta2->planta1
+planta1->planta3
+planta3->planta3
+planta3->planta1
+planta1->planta1
+
+}
