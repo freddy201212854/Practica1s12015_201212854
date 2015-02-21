@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  */
 public class Hilo implements Runnable {
     static Thread objetoHilo;
-    static int contad=-1,CantPersonajes;
+    static int contad=-1,CantPersonajes=0,CantPersonajes2,contad2=-1;
     boolean done=false;
     Tablero t;
     public static void empezarHilo(){
@@ -33,20 +33,56 @@ public class Hilo implements Runnable {
       
       while(!done){ 
        
-         int random=(int) (Math.random()*CrearPlantas.imagenes.size());
-         int n=random+1;
+         //int random=(int) (Math.random()*CrearPlantas.imagenes.size());
+         //int random2=(int) (Math.random()*CrearZombies.imagenesZombies.size());
          // System.out.println("cantidad: "+Plantas.Cantidad+"contadorPer: "+(CantPersonajes)+"cont: "+contad);
+            if(contad<CrearPlantas.imagenes.size()&&contad!=-1){
+               int random=(int) (Math.random()*CrearPlantas.imagenes.size());
+               MontarImagenes(CrearPlantas.imagenes.get(random));
+            //MontarImagenesZombies("zombies1.png");
+            }if(contad2<CrearZombies.imagenesZombies.size()&&contad2!=-1)
+            {
+               int random2=(int) (Math.random()*CrearZombies.imagenesZombies.size());
+               MontarImagenesZombies(CrearZombies.imagenesZombies.get(random2));
+            }         
          
-          if(contad<CrearPlantas.imagenes.size()&&contad!=-1){
-            MontarImagenes(CrearPlantas.imagenes.get(random));
-            MontarImagenesZombies("zombies1.png");
-          }if(contad==CrearPlantas.imagenes.size()){
+          if(Zombies.CantidadZombie<Plantas.Cantidad)
+          {
+                           System.out.println("Plantas Cant: "+Plantas.Cantidad+" CantPers: "+CantPersonajes);
+
+            if(contad==CrearPlantas.imagenes.size()-1){ 
+               contad=-1;
+            }
+            if(contad2==CrearZombies.imagenesZombies.size()-1)
+            {
+                contad2=-1;
+            }
+            if(Zombies.CantidadZombie==CantPersonajes2)
+            {
+                contad2=CrearZombies.imagenesZombies.size()+2;
+            }
+            if(Plantas.Cantidad==CantPersonajes)
+            {
+                done=true;
+            }
+            
+          }
+       /*   if(contad==CrearPlantas.imagenes.size()){ 
               
-                  contad=-1;         
-          }if(CantPersonajes-2==Plantas.Cantidad){
-              //objetoHilo.suspend();
+                  contad=-1;
+          }
+          if(contad2==CrearZombies.imagenesZombies.size())
+          {
+            contad2=-1;
+          }
+          if(CantPersonajes-2==Plantas.Cantidad)
+          {
               done=true;
           }
+          if(CantPersonajes2==Zombies.CantidadZombie){
+              contad2=Zombies.CantidadZombie+2;
+          }
+         */
           
        try {
               objetoHilo.sleep(1000);
@@ -55,6 +91,8 @@ public class Hilo implements Runnable {
           }
          contad++;
          CantPersonajes++;
+         CantPersonajes2++;
+         contad2++;
          }
       }
     public void MontarImagenes(String img)
