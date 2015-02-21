@@ -1,8 +1,8 @@
 digraph A{
-Jugadores->Plantas->Alejandro
+Jugadores->Plantas->Freddy
 Plantas->Zombies
+Freddy->4
+Zombies->Alejandro
 Alejandro->6
-Zombies->freddy
-freddy->4
 
 }

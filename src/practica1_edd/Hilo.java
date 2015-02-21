@@ -66,6 +66,26 @@ public class Hilo implements Runnable {
                 done=true;
             }
             
+          }else if(Plantas.Cantidad<Zombies.CantidadZombie)
+          {
+                             System.out.println("Plantas Cant: "+Plantas.Cantidad+" CantPers: "+CantPersonajes);
+
+            if(contad==CrearPlantas.imagenes.size()-1){ 
+               contad=-1;
+            }
+            if(contad2==CrearZombies.imagenesZombies.size()-1)
+            {
+                contad2=-1;
+            }
+           
+            if(Plantas.Cantidad==CantPersonajes)
+            {
+                contad=CrearPlantas.imagenes.size()+2;
+            }
+            if(Zombies.CantidadZombie==CantPersonajes2)
+            {
+               done=true;
+            }
           }
        /*   if(contad==CrearPlantas.imagenes.size()){ 
               
