@@ -12,7 +12,7 @@ import java.io.*;
  * @author KRATOS
  */
 public class ListaEnlazada {
-    static String textos="",txt="",textosCola="";
+    static String textos="",txt="",textosCola="",textosPila="";
     static int contador=0;
     ListNode firstNode;
     ListNode lastNode;
@@ -202,7 +202,7 @@ public class ListaEnlazada {
             pw = new PrintWriter(fichero);
  
             
-                pw.println("digraph A{"+"\r\n"+"graph [rankdir = \"LR\"];"+"\r\n"+"node [fontsize = \"16\" shape = \"shape\"];"+"\r\n"+texto+"\r\n"+"}");
+                pw.println("digraph A{"+"\r\n"+"node [fontsize = \"16\" shape = \"shape\"];"+"\r\n"+texto+"\r\n"+"}");
  
         } catch (Exception e) {
             e.printStackTrace();
@@ -243,4 +243,90 @@ public class ListaEnlazada {
         }
     
     }
+    
+       public void imprimirPila(){//imprime los datos de la lista generando su imagen
+        if(!isEmpty()){
+                
+            ListNode actual=firstNode;
+            
+            while(actual!=null)
+            {
+                ToDotPila(actual);
+                //System.out.println(actual.dato);
+                actual=actual.next;    
+            }
+            
+        }else
+            System.out.println("Lista vacia");
+    }
+     public static String ToDotPila(ListNode node) {//genera los datos que van en el archivo de texto
+            StringBuilder b = new StringBuilder();
+         
+            if (node.next != null) {
+              //System.out.println(node.dato.toString()+"->"+node.next.dato.toString());
+                textosPila=textosPila+node.dato.toString()+"->"+node.next.dato.toString()+"\r\n";
+                //System.out.println(textos);
+            
+                //System.out.println(textos);
+            }else{
+                generarArchivoPila(textosPila);
+                System.out.println(textosPila);
+               GenerarPila();
+              // textos="";
+            }
+   
+            return b.toString();
+        }
+    public static void generarArchivoPila(String texto)//genera el archivo para genera la imagen de la lista
+    {
+      FileWriter fichero = null;
+      PrintWriter pw = null;
+        try
+        {
+            fichero = new FileWriter("C:\\Users\\freddy\\Documents\\NetBeansProjects\\Practica1_EDD\\Pila.txt");
+            pw = new PrintWriter(fichero);
+ 
+            
+                pw.println("digraph A{"+"\r\n"+"node [fontsize = \"16\" shape = \"shape\"];"+"\r\n"+texto+"\r\n"+"}");
+ 
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+           try {
+           // Nuevamente aprovechamos el finally para 
+           // asegurarnos que se cierra el fichero.
+           if (null != fichero)
+              fichero.close();
+           } catch (Exception e2) {
+              e2.printStackTrace();
+           }
+        }
+    }
+    public static void GenerarPila()//Genera la imagen de la lista
+    {
+        try{
+           String dotPath="C:\\Graphviz\\release\\bin\\dot.exe"; 
+           String fileInputPath="C:\\Users\\freddy\\Documents\\NetBeansProjects\\Practica1_EDD\\Pila.txt";
+           String fileOutputPath="C:\\Users\\freddy\\Documents\\NetBeansProjects\\Practica1_EDD\\Pila.png";
+           String tParam="-Tjpg";
+           String tOParam="-o";
+           
+           
+           String[] cmd=new String[5];
+           cmd[0]=dotPath;
+           cmd[1]=tParam;
+           cmd[2]=fileInputPath;
+           cmd[3]=tOParam;
+           cmd[4]=fileOutputPath;
+           
+           Runtime rt=Runtime.getRuntime();
+           rt.exec(cmd);
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }finally{
+            
+        }
+    
+    }
+    
 }

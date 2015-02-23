@@ -114,7 +114,7 @@ public class ListaDoble {
         System.out.print("ataque: "+datos.getAtaque()+" ");
         System.out.print("defensa: "+datos.getDefensa()+" ");
         System.out.print("Tipo: "+datos.getDisparo()+" ");
-        System.out.println("Tipo: "+datos.getImagen());
+        System.out.println("Imagen: "+datos.getImagen());
 
         n = n.adelante;
         }
@@ -263,4 +263,7 @@ public class ListaDoble {
         }
     
     }
+    
+    
+    
 }

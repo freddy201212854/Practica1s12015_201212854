@@ -1,9 +1,7 @@
 digraph A{
-graph [rankdir = "LR"];
 node [fontsize = "16" shape = "shape"];
-a(P5)->b(P4)
-b(P4)->b(P3)
-b(P3)->a(P2)
-a(P2)->c(P1)
+cocoPersonaje1->florPersonaje2
+florPersonaje2->cocoPersonaje3
+cocoPersonaje3->cocoPersonaje4
 
 }

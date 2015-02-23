@@ -121,6 +121,7 @@ public class Inicio extends javax.swing.JFrame {
 
     private void Eliminar_JuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Eliminar_JuegoActionPerformed
          ListaColaPlantas.imprimirCola();
+         ListaPilaZombies.imprimirPila();
     }//GEN-LAST:event_Eliminar_JuegoActionPerformed
 
     

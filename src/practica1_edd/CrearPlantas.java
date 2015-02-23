@@ -59,7 +59,6 @@ public class CrearPlantas extends javax.swing.JFrame {
         nombre = new javax.swing.JTextField();
         ataque = new javax.swing.JTextField();
         defensa = new javax.swing.JTextField();
-        tipo = new javax.swing.JTextField();
         insertar = new javax.swing.JButton();
         modificar = new javax.swing.JButton();
         eliminar = new javax.swing.JButton();
@@ -77,6 +76,7 @@ public class CrearPlantas extends javax.swing.JFrame {
         result = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        tipo = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -92,7 +92,6 @@ public class CrearPlantas extends javax.swing.JFrame {
             }
         });
         getContentPane().add(defensa, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 200, -1));
-        getContentPane().add(tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 200, -1));
 
         insertar.setBackground(new java.awt.Color(51, 51, 51));
         insertar.setFont(new java.awt.Font("Ravie", 1, 14)); // NOI18N
@@ -214,6 +213,9 @@ public class CrearPlantas extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 500, -1, -1));
 
+        tipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Directo", "Disparo" }));
+        getContentPane().add(tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 200, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/portada3.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -226,7 +228,7 @@ public class CrearPlantas extends javax.swing.JFrame {
          String nom=nombre.getText().trim();
          String ata=ataque.getText().trim();
          String def=defensa.getText().trim();
-         String tip=tipo.getText().trim();
+         String tip=tipo.getSelectedItem().toString();
          
          if(!nom.isEmpty()&&!ata.isEmpty()&&!def.isEmpty()&&!tip.isEmpty())
             lista.editar(nom,Integer.valueOf(ata), Integer.valueOf(def), tip);
@@ -266,7 +268,7 @@ public class CrearPlantas extends javax.swing.JFrame {
         String nom=nombre.getText().trim();
         int  ataq=Integer.valueOf(ataque.getText().trim());
         int  def=Integer.valueOf(defensa.getText().trim());
-        String tip=tipo.getText().trim();
+        String tip=tipo.getSelectedItem().toString();
         String img=Imag.getText();
         Personajes objeto=new Personajes(nom,ataq,def,tip,img);
         lista.insertarCabezaLista(objeto);
@@ -428,6 +430,6 @@ public class CrearPlantas extends javax.swing.JFrame {
     private javax.swing.JButton modificar;
     private javax.swing.JTextField nombre;
     private javax.swing.JLabel result;
-    private javax.swing.JTextField tipo;
+    private javax.swing.JComboBox tipo;
     // End of variables declaration//GEN-END:variables
 }

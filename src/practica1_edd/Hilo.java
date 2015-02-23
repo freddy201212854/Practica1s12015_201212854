@@ -41,14 +41,18 @@ public class Hilo implements Runnable {
                MontarImagenes(CrearPlantas.imagenes.get(random));
                CrearPlantas.NombresPanel.get(random);
                if(CantPersonajes<Plantas.Cantidad+1){
-                 Inicio.ListaColaPlantas.InsertAtFront(CrearPlantas.NombresPanel.get(random)+"Personaje"+CantPersonajes);
+                 Inicio.ListaColaPlantas.InsertAtBack(CrearPlantas.NombresPanel.get(random)+"Personaje"+CantPersonajes);
                }
             //MontarImagenesZombies("zombies1.png");
             }if(contad2<CrearZombies.imagenesZombies.size()&&contad2!=-1)
             {
                int random2=(int) (Math.random()*CrearZombies.imagenesZombies.size());
                MontarImagenesZombies(CrearZombies.imagenesZombies.get(random2));
-               Inicio.ListaPilaZombies.InsertAtBack(CrearZombies.NombresPanel.get(random2));
+               
+               if(CantPersonajes2<Zombies.CantidadZombie+1)
+               {
+                   Inicio.ListaPilaZombies.InsertAtFront(CrearZombies.NombresPanel.get(random2)+"Personaje"+CantPersonajes2);
+               }
             }         
          
           if(Zombies.CantidadZombie<Plantas.Cantidad)

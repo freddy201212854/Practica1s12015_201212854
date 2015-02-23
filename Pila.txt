@@ -1,0 +1,10 @@
+digraph A{
+node [fontsize = "16" shape = "shape"];
+zomPersonaje7->tacleadorPersonaje6
+tacleadorPersonaje6->zomPersonaje5
+zomPersonaje5->zomPersonaje4
+zomPersonaje4->tacleadorPersonaje3
+tacleadorPersonaje3->zomPersonaje2
+zomPersonaje2->zomPersonaje1
+
+}

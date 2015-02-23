@@ -57,7 +57,6 @@ public class CrearZombies extends javax.swing.JFrame {
         nombre = new javax.swing.JTextField();
         ataque = new javax.swing.JTextField();
         defensa = new javax.swing.JTextField();
-        tipo = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         Insertar = new javax.swing.JButton();
@@ -75,6 +74,7 @@ public class CrearZombies extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        tipo = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -84,7 +84,6 @@ public class CrearZombies extends javax.swing.JFrame {
         getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 180, -1));
         getContentPane().add(ataque, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 180, -1));
         getContentPane().add(defensa, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 180, -1));
-        getContentPane().add(tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 180, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -205,6 +204,9 @@ public class CrearZombies extends javax.swing.JFrame {
         jLabel5.setText("Tipo de Disparo:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
+        tipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Directo", "Disparo" }));
+        getContentPane().add(tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 180, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/portada3.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -249,7 +251,7 @@ public class CrearZombies extends javax.swing.JFrame {
         String nom=nombre.getText().trim();
         int  ataq=Integer.valueOf(ataque.getText().trim());
         int  def=Integer.valueOf(defensa.getText().trim());
-        String tip=tipo.getText().trim();
+        String tip=tipo.getSelectedItem().toString();
         String img=Imag.getText();
         Personajes objeto=new Personajes(nom,ataq,def,tip,img);
         lista2.insertarCabezaLista(objeto);
@@ -301,7 +303,7 @@ public class CrearZombies extends javax.swing.JFrame {
          String nom=nombre.getText().trim();
          String ata=ataque.getText().trim();
          String def=defensa.getText().trim();
-         String tip=tipo.getText().trim();
+         String tip=tipo.getSelectedItem().toString();
          
          if(!nom.isEmpty()&&!ata.isEmpty()&&!def.isEmpty()&&!tip.isEmpty())
             lista2.editar(nom,Integer.valueOf(ata), Integer.valueOf(def), tip);
@@ -407,6 +409,6 @@ public class CrearZombies extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField nombre;
     private javax.swing.JLabel result;
-    private javax.swing.JTextField tipo;
+    private javax.swing.JComboBox tipo;
     // End of variables declaration//GEN-END:variables
 }
