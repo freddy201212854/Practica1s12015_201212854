@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  */
 public class Hilo implements Runnable {
     static Thread objetoHilo;
-    static int contad=-1,CantPersonajes=0,CantPersonajes2,contad2=-1;
+    static int contad=-1,CantPersonajes=0,CantPersonajes2,contad2=-1,contadorCola=0;
     boolean done=false;
     Tablero t;
     public static void empezarHilo(){
@@ -40,7 +40,9 @@ public class Hilo implements Runnable {
                int random=(int) (Math.random()*CrearPlantas.imagenes.size());
                MontarImagenes(CrearPlantas.imagenes.get(random));
                CrearPlantas.NombresPanel.get(random);
-               Inicio.ListaColaPlantas.InsertAtFront(CrearPlantas.NombresPanel.get(random));
+               if(CantPersonajes<Plantas.Cantidad+1){
+                 Inicio.ListaColaPlantas.InsertAtFront(CrearPlantas.NombresPanel.get(random)+"Personaje"+CantPersonajes);
+               }
             //MontarImagenesZombies("zombies1.png");
             }if(contad2<CrearZombies.imagenesZombies.size()&&contad2!=-1)
             {

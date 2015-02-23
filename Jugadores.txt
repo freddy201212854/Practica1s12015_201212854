@@ -3,8 +3,8 @@ graph [rankdir = "LR"];
 node [fontsize = "16" shape = "shape"];
 Jugadores->Plantas->Alejandro
 Plantas->Zombies
-Alejandro->7
-Zombies->Freddy
-Freddy->5
+Alejandro->5
+Zombies->freddy
+freddy->3
 
 }
