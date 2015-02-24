@@ -5,26 +5,29 @@
  */
 package practica1_edd;
 
+import java.awt.event.KeyEvent;
+import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import javax.swing.*;
 
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author KRATOS
- */
 public class CrearPlantas extends javax.swing.JFrame {
 
     /**
      * Creates new form CrearPersonaje
      */
    public static ListaDoble lista=new ListaDoble();
+   
+   JFileChooser elegir;
+   File guardar;
    ArrayList <String> Img=new ArrayList();
-  public static ArrayList <String> NombresPanel=new ArrayList();
+   public static ArrayList <String> NombresPanel=new ArrayList();
    public static ArrayList<String>imagenes=new ArrayList();
    int contador=0;
+   
+   
     public CrearPlantas() {
         initComponents();
               
@@ -46,6 +49,12 @@ public class CrearPlantas extends javax.swing.JFrame {
           URL url=this.getClass().getResource(path);
           ImageIcon icon=new ImageIcon(url);
           result.setIcon(icon);
+    }
+    public void MostrarImagenesAgregadas(String path)
+    {
+          URL url=this.getClass().getResource(path);
+          ImageIcon icon=new ImageIcon(url);
+          imagen.setIcon(icon);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -77,6 +86,7 @@ public class CrearPlantas extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         tipo = new javax.swing.JComboBox();
+        AgregarImagenes = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -84,11 +94,22 @@ public class CrearPlantas extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(700, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 200, -1));
+
+        ataque.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ataqueKeyTyped(evt);
+            }
+        });
         getContentPane().add(ataque, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 200, -1));
 
         defensa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 defensaActionPerformed(evt);
+            }
+        });
+        defensa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                defensaKeyTyped(evt);
             }
         });
         getContentPane().add(defensa, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 200, -1));
@@ -215,6 +236,17 @@ public class CrearPlantas extends javax.swing.JFrame {
 
         tipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Directo", "Disparo" }));
         getContentPane().add(tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 200, -1));
+
+        AgregarImagenes.setBackground(new java.awt.Color(51, 51, 51));
+        AgregarImagenes.setFont(new java.awt.Font("Ravie", 1, 12)); // NOI18N
+        AgregarImagenes.setForeground(new java.awt.Color(255, 255, 255));
+        AgregarImagenes.setText("AgregarImagenes");
+        AgregarImagenes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarImagenesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(AgregarImagenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 190, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/portada3.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -372,6 +404,37 @@ public class CrearPlantas extends javax.swing.JFrame {
          this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void ataqueKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ataqueKeyTyped
+        validarNumeros(evt,ataque);
+    }//GEN-LAST:event_ataqueKeyTyped
+
+    private void defensaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_defensaKeyTyped
+        validarNumeros(evt,defensa);
+    }//GEN-LAST:event_defensaKeyTyped
+
+    private void AgregarImagenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarImagenesActionPerformed
+        elegir=new JFileChooser();
+        int respuesta=elegir.showOpenDialog(this);
+        
+        if(respuesta==JFileChooser.APPROVE_OPTION){
+            File ArchivoElegido=elegir.getSelectedFile();
+            Img.add(ArchivoElegido.getName());
+            System.out.println(ArchivoElegido.getName());
+        }
+        
+        
+    }//GEN-LAST:event_AgregarImagenesActionPerformed
+    public void validarNumeros(KeyEvent evt,JTextField cantidad){
+          char tecla;
+        tecla=evt.getKeyChar();
+        if(!Character.isDigit(tecla)&&tecla!=KeyEvent.VK_BACK_SPACE){
+           evt.consume();
+           getToolkit().beep();
+        }
+        if(tecla=='.'&&cantidad.getText().contains(".")){
+            evt.consume();
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -409,6 +472,7 @@ public class CrearPlantas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AgregarImagenes;
     private javax.swing.JLabel Imag;
     private javax.swing.JButton adelante;
     private javax.swing.JTextField ataque;

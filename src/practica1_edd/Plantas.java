@@ -5,6 +5,8 @@
  */
 package practica1_edd;
 
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author KRATOS
@@ -12,6 +14,7 @@ package practica1_edd;
 public class Plantas extends javax.swing.JFrame {
    int contador=0;
    public static int Cantidad=0;
+   public static String nombrePlantas="";
     /**
      * Creates new form Plantas
      */
@@ -80,6 +83,12 @@ public class Plantas extends javax.swing.JFrame {
             }
         });
         getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 220, -1));
+
+        cantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cantidadKeyTyped(evt);
+            }
+        });
         getContentPane().add(cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 220, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/plantas.jpg"))); // NOI18N
@@ -101,6 +110,7 @@ public class Plantas extends javax.swing.JFrame {
         String nom=nombre.getText().trim();
         String cant=cantidad.getText().trim();
         Cantidad=Integer.valueOf(cant);
+        nombrePlantas=nom;
         if(contador==1){
            
            Inicio.ListaInformacion.InsertAtFront("Plantas");
@@ -113,6 +123,20 @@ public class Plantas extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_extrasActionPerformed
 
+    private void cantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cantidadKeyTyped
+      validarNumeros(evt);
+    }//GEN-LAST:event_cantidadKeyTyped
+    public void validarNumeros(KeyEvent evt){
+          char tecla;
+        tecla=evt.getKeyChar();
+        if(!Character.isDigit(tecla)&&tecla!=KeyEvent.VK_BACK_SPACE){
+           evt.consume();
+           getToolkit().beep();
+        }
+        if(tecla=='.'&&cantidad.getText().contains(".")){
+            evt.consume();
+        }
+    }
     /**
      * @param args the command line arguments
      */

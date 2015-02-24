@@ -5,6 +5,8 @@
  */
 package practica1_edd;
 
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author KRATOS
@@ -12,6 +14,7 @@ package practica1_edd;
 public class Zombies extends javax.swing.JFrame {
    int contador=0;
    static int CantidadZombie=0;
+   static String nombreZombie="";
     /**
      * Creates new form Zombies
      */
@@ -49,6 +52,12 @@ public class Zombies extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nombre:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
+
+        cantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cantidadKeyTyped(evt);
+            }
+        });
         getContentPane().add(cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 220, 30));
         getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 220, 30));
 
@@ -89,6 +98,7 @@ public class Zombies extends javax.swing.JFrame {
         String nom=nombre.getText().trim();
         String cant=cantidad.getText().trim();
         CantidadZombie=Integer.valueOf(cant);
+        nombreZombie=nom;
         if(contador==1){
            Inicio.ListaInformacion.unir("Zombies");
            Inicio.ListaInformacion.unir(nom);
@@ -102,6 +112,20 @@ public class Zombies extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void cantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cantidadKeyTyped
+         validarNumeros(evt);
+    }//GEN-LAST:event_cantidadKeyTyped
+    public void validarNumeros(KeyEvent evt){
+          char tecla;
+        tecla=evt.getKeyChar();
+        if(!Character.isDigit(tecla)&&tecla!=KeyEvent.VK_BACK_SPACE){
+           evt.consume();
+           getToolkit().beep();
+        }
+        if(tecla=='.'&&cantidad.getText().contains(".")){
+            evt.consume();
+        }
+    }
     /**
      * @param args the command line arguments
      */

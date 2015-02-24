@@ -57,7 +57,7 @@ public class Hilo implements Runnable {
          
           if(Zombies.CantidadZombie<Plantas.Cantidad)
           {
-                           System.out.println("Plantas Cant: "+Plantas.Cantidad+" CantPers: "+CantPersonajes);
+            System.out.println("Plantas Cant: "+Plantas.Cantidad+" CantPers: "+CantPersonajes);
 
             if(contad==CrearPlantas.imagenes.size()-1){ 
                contad=-1;

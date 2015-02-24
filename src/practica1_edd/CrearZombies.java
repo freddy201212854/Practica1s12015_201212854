@@ -5,9 +5,13 @@
  */
 package practica1_edd;
 
+import java.awt.event.KeyEvent;
+import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -15,7 +19,8 @@ import javax.swing.table.DefaultTableModel;
  * @author KRATOS
  */
 public class CrearZombies extends javax.swing.JFrame {
-
+     
+    JFileChooser elegir;
     /**
      * Creates new form CrearZombies
      */
@@ -54,6 +59,7 @@ public class CrearZombies extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton3 = new javax.swing.JButton();
         nombre = new javax.swing.JTextField();
         ataque = new javax.swing.JTextField();
         defensa = new javax.swing.JTextField();
@@ -75,14 +81,29 @@ public class CrearZombies extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         tipo = new javax.swing.JComboBox();
+        AgregarImagenes = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+
+        jButton3.setText("jButton3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 600));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 180, -1));
+
+        ataque.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ataqueKeyTyped(evt);
+            }
+        });
         getContentPane().add(ataque, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 180, -1));
+
+        defensa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                defensaKeyTyped(evt);
+            }
+        });
         getContentPane().add(defensa, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 180, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -206,6 +227,17 @@ public class CrearZombies extends javax.swing.JFrame {
 
         tipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Directo", "Disparo" }));
         getContentPane().add(tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 180, -1));
+
+        AgregarImagenes.setBackground(new java.awt.Color(51, 51, 51));
+        AgregarImagenes.setFont(new java.awt.Font("Ravie", 1, 12)); // NOI18N
+        AgregarImagenes.setForeground(new java.awt.Color(255, 255, 255));
+        AgregarImagenes.setText("AgregarImagenes");
+        AgregarImagenes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarImagenesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(AgregarImagenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 190, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/portada3.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -352,6 +384,35 @@ public class CrearZombies extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void ataqueKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ataqueKeyTyped
+        validarNumeros(evt,ataque);
+    }//GEN-LAST:event_ataqueKeyTyped
+
+    private void defensaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_defensaKeyTyped
+        validarNumeros(evt,defensa);
+    }//GEN-LAST:event_defensaKeyTyped
+
+    private void AgregarImagenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarImagenesActionPerformed
+        elegir=new JFileChooser();
+        int respuesta=elegir.showOpenDialog(this);
+        
+        if(respuesta==JFileChooser.APPROVE_OPTION){
+            File ArchivoElegido=elegir.getSelectedFile();
+            Img.add(ArchivoElegido.getName());
+            System.out.println(ArchivoElegido.getName());
+        }
+    }//GEN-LAST:event_AgregarImagenesActionPerformed
+    public void validarNumeros(KeyEvent evt,JTextField cantidad){
+          char tecla;
+        tecla=evt.getKeyChar();
+        if(!Character.isDigit(tecla)&&tecla!=KeyEvent.VK_BACK_SPACE){
+           evt.consume();
+           getToolkit().beep();
+        }
+        if(tecla=='.'&&cantidad.getText().contains(".")){
+            evt.consume();
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -388,6 +449,7 @@ public class CrearZombies extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AgregarImagenes;
     private javax.swing.JButton Eliminar;
     private javax.swing.JLabel Imag;
     private javax.swing.JButton Insertar;
@@ -400,6 +462,7 @@ public class CrearZombies extends javax.swing.JFrame {
     private javax.swing.JLabel imagen;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

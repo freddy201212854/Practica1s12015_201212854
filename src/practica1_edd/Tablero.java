@@ -21,38 +21,54 @@ public class Tablero extends javax.swing.JFrame {
         initComponents();
         
           Hilo.empezarHilo();
-          String path="/imagenes/planta1.png";
+          
+          this.setTitle("JUEGO");
+          
+          String path="/imagenes/portada4.jpg";
           URL url=this.getClass().getResource(path);
           ImageIcon icon=new ImageIcon(url);
           
-              lab=new JLabel("fds");
-              lab.setBounds(500,100,100,100);
-              lab.setIcon(icon);
-              add(lab);
+          String path2="/imagenes/tablero.jpg";
+          URL url2=this.getClass().getResource(path2);
+          ImageIcon icon2=new ImageIcon(url2);
+          
+                nombre1.setText(Plantas.nombrePlantas);
+                nombre2.setText(Zombies.nombreZombie);
          
                 JPanel gui = new JPanel(new BorderLayout(3,3));
                 gui.setBounds(50,70,200,600);
                 panel = new JPanel(new GridLayout(0,1));
                 JScrollPane scroll = new JScrollPane(panel);
                 scroll.setPreferredSize(new Dimension(100,100));
+                panel.setBackground(Color.orange);
+                gui.setBackground(Color.red);
                 gui.add(scroll, BorderLayout.CENTER);
-                JLabel addLabel = new JLabel("Add Label");
-                gui.add(addLabel, BorderLayout.NORTH);
-                add(gui);
                 
-                //HiloZombie.empezarHilo2();
-
+                add(gui);
+ 
                 JPanel gui2 = new JPanel(new BorderLayout(3,3));
                 gui2.setBounds(1085,70,200,600);
                 panel2 = new JPanel(new GridLayout(0,1));
                 JScrollPane scroll2 = new JScrollPane(panel2);
                 scroll2.setPreferredSize(new Dimension(100,100));
+                panel2.setBackground(Color.orange);
+                gui2.setBackground(Color.red);
                 gui2.add(scroll2, BorderLayout.CENTER);
-                JLabel addLabel2 = new JLabel("Add Label");
-                gui2.add(addLabel2, BorderLayout.NORTH);
+                
                   
                 add(gui2);
+               
+                 lab2=new JLabel();
+                lab2.setBounds(255,70,823,600);
+                lab2.setIcon(icon2);
+                add(lab2);
                 
+                lab=new JLabel();
+                lab.setBounds(0,0,1330,1028);
+                lab.setIcon(icon);
+                add(lab);
+                
+               
   
     }
     public static void p(URL url)
@@ -99,18 +115,39 @@ public class Tablero extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        nombre1 = new javax.swing.JLabel();
+        nombre2 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(300, 700));
+
+        nombre1.setFont(new java.awt.Font("Ravie", 1, 18)); // NOI18N
+        nombre1.setForeground(new java.awt.Color(255, 0, 0));
+        nombre1.setText("hjjjjjjj");
+
+        nombre2.setFont(new java.awt.Font("Ravie", 1, 18)); // NOI18N
+        nombre2.setForeground(new java.awt.Color(255, 0, 0));
+        nombre2.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1330, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(nombre1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 955, Short.MAX_VALUE)
+                .addComponent(nombre2)
+                .addGap(114, 114, 114))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1028, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nombre1)
+                    .addComponent(nombre2))
+                .addContainerGap(966, Short.MAX_VALUE))
         );
 
         pack();
@@ -152,5 +189,7 @@ public class Tablero extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel nombre1;
+    private javax.swing.JLabel nombre2;
     // End of variables declaration//GEN-END:variables
 }

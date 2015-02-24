@@ -1,10 +1,10 @@
 digraph A{
 graph [rankdir = "LR"];
 node [fontsize = "16" shape = "shape"];
-Jugadores->Plantas->Freddy
+Jugadores->Plantas->Alejandro
 Plantas->Zombies
-Freddy->4
-Zombies->Alejandro
-Alejandro->7
+Alejandro->6
+Zombies->Freddy
+Freddy->8
 
 }
