@@ -1,3 +1,4 @@
 digraph A{
-Zombies->h->gf->as
+node [fontsize = "16" shape = "shape"];
+Zombies->zombie2->zombie1
 }

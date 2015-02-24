@@ -151,7 +151,7 @@ public class ListaDoble {
             pw = new PrintWriter(fichero);
  
             
-                pw.println("digraph A{"+"\r\n"+texto+"\r\n"+"}");
+                pw.println("digraph A{"+"\r\n"+"node [fontsize = \"16\" shape = \"shape\"];"+"\r\n"+texto+"\r\n"+"}");
  
         } catch (Exception e) {
             e.printStackTrace();
@@ -222,7 +222,7 @@ public class ListaDoble {
             pw = new PrintWriter(fichero);
  
             
-                pw.println("digraph A{"+"\r\n"+texto+"\r\n"+"}");
+                pw.println("digraph A{"+"\r\n"+"node [fontsize = \"16\" shape = \"shape\"];"+"\r\n"+texto+"\r\n"+"}");
  
         } catch (Exception e) {
             e.printStackTrace();

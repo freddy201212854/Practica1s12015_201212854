@@ -70,7 +70,6 @@ public class CrearZombies extends javax.swing.JFrame {
         Eliminar = new javax.swing.JButton();
         atras = new javax.swing.JButton();
         adelante = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         combo = new javax.swing.JComboBox();
         result = new javax.swing.JLabel();
@@ -172,14 +171,6 @@ public class CrearZombies extends javax.swing.JFrame {
             }
         });
         getContentPane().add(adelante, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, -1, -1));
-
-        jButton1.setText("Ver Grafica");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 440, -1, -1));
 
         jButton2.setBackground(new java.awt.Color(51, 51, 51));
         jButton2.setFont(new java.awt.Font("Ravie", 1, 14)); // NOI18N
@@ -370,11 +361,6 @@ public class CrearZombies extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ModificarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-              lista2.imprimir2();
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         for(int i=0;i<jTable1.getRowCount();i++){
              imagenesZombies.add(jTable1.getValueAt(i, 4).toString());
@@ -460,7 +446,6 @@ public class CrearZombies extends javax.swing.JFrame {
     private javax.swing.JComboBox combo;
     private javax.swing.JTextField defensa;
     private javax.swing.JLabel imagen;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;

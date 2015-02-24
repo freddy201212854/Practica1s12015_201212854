@@ -1,3 +1,4 @@
 digraph A{
-Plantas->elote->flor->coco
+node [fontsize = "16" shape = "shape"];
+Plantas->planta3->planta2->planta1
 }

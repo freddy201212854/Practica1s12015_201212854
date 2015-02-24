@@ -6,6 +6,9 @@
 package practica1_edd;
 
 import java.awt.BorderLayout;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 
 /**
@@ -38,6 +41,8 @@ public class Inicio extends javax.swing.JFrame {
         Zombis = new javax.swing.JButton();
         Juego = new javax.swing.JButton();
         Eliminar_Juego = new javax.swing.JButton();
+        combo = new javax.swing.JComboBox();
+        reportes = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -55,7 +60,7 @@ public class Inicio extends javax.swing.JFrame {
                 PlantasActionPerformed(evt);
             }
         });
-        getContentPane().add(Plantas, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, -1));
+        getContentPane().add(Plantas, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, -1, -1));
 
         Zombis.setBackground(new java.awt.Color(51, 51, 51));
         Zombis.setFont(new java.awt.Font("Ravie", 1, 18)); // NOI18N
@@ -66,7 +71,7 @@ public class Inicio extends javax.swing.JFrame {
                 ZombisActionPerformed(evt);
             }
         });
-        getContentPane().add(Zombis, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, -1, -1));
+        getContentPane().add(Zombis, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, -1));
 
         Juego.setBackground(new java.awt.Color(51, 51, 51));
         Juego.setFont(new java.awt.Font("Ravie", 1, 18)); // NOI18N
@@ -77,7 +82,7 @@ public class Inicio extends javax.swing.JFrame {
                 JuegoActionPerformed(evt);
             }
         });
-        getContentPane().add(Juego, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
+        getContentPane().add(Juego, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
 
         Eliminar_Juego.setBackground(new java.awt.Color(51, 51, 51));
         Eliminar_Juego.setFont(new java.awt.Font("Ravie", 1, 18)); // NOI18N
@@ -88,7 +93,26 @@ public class Inicio extends javax.swing.JFrame {
                 Eliminar_JuegoActionPerformed(evt);
             }
         });
-        getContentPane().add(Eliminar_Juego, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, -1, -1));
+        getContentPane().add(Eliminar_Juego, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, -1, -1));
+
+        combo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Jugadores.png", "CatalogoPlanta.png", "CatalagoZombie.png", "Pila.png", "Cola.png", "prueba.png" }));
+        combo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboActionPerformed(evt);
+            }
+        });
+        getContentPane().add(combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 130, -1));
+
+        reportes.setBackground(new java.awt.Color(0, 0, 0));
+        reportes.setFont(new java.awt.Font("Ravie", 1, 14)); // NOI18N
+        reportes.setForeground(new java.awt.Color(255, 255, 255));
+        reportes.setText("Generar Reportes");
+        reportes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reportesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(reportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 410, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/portada.jpg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -116,13 +140,34 @@ public class Inicio extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(null, "No se ha creado Los Usuarios");
         }
-        ListaInformacion.imprimir();
     }//GEN-LAST:event_JuegoActionPerformed
 
     private void Eliminar_JuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Eliminar_JuegoActionPerformed
-         ListaColaPlantas.imprimirCola();
-         ListaPilaZombies.imprimirPila();
+         
     }//GEN-LAST:event_Eliminar_JuegoActionPerformed
+
+    private void comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboActionPerformed
+        
+        String seleccionado=(String)combo.getSelectedItem();
+            try {
+                File path = new File (seleccionado);
+                if(path.exists()){
+                 Desktop.getDesktop().open(path);
+                }else{
+                  JOptionPane.showMessageDialog(this, "No existe el Archivo");
+                }
+                }catch (IOException ex) {
+                ex.printStackTrace();
+           }
+    }//GEN-LAST:event_comboActionPerformed
+
+    private void reportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportesActionPerformed
+        ListaInformacion.imprimir();
+        ListaColaPlantas.imprimirCola();
+        ListaPilaZombies.imprimirPila();
+        CrearZombies.lista2.imprimir2();
+        CrearPlantas.lista.imprimir();
+    }//GEN-LAST:event_reportesActionPerformed
 
     
     /**
@@ -173,6 +218,8 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton Juego;
     private javax.swing.JButton Plantas;
     private javax.swing.JButton Zombis;
+    private javax.swing.JComboBox combo;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton reportes;
     // End of variables declaration//GEN-END:variables
 }
