@@ -287,12 +287,14 @@ public class CrearPlantas extends javax.swing.JFrame {
     }//GEN-LAST:event_modificarActionPerformed
 
     private void insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarActionPerformed
-
+        try{
         String nom=nombre.getText().trim();
         int  ataq=Integer.valueOf(ataque.getText().trim());
         int  def=Integer.valueOf(defensa.getText().trim());
         String tip=tipo.getSelectedItem().toString();
         String img=Imag.getText();
+        
+        if(!img.isEmpty()){
         Personajes objeto=new Personajes(nom,ataq,def,tip,img);
         lista.insertarCabezaLista(objeto);
         lista.visualizar();
@@ -308,6 +310,13 @@ public class CrearPlantas extends javax.swing.JFrame {
         filas[4]=Imag.getText();
         combo.addItem(nom);
         modelo.addRow(filas);
+        }else{
+            JOptionPane.showMessageDialog(null, "Seleccione una imagen");
+        }
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null,"LLenar Campos");
+
+        }
     }//GEN-LAST:event_insertarActionPerformed
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed

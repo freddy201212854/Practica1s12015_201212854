@@ -11,6 +11,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
@@ -271,26 +272,37 @@ public class CrearZombies extends javax.swing.JFrame {
     }//GEN-LAST:event_adelanteActionPerformed
 
     private void InsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertarActionPerformed
+        try{
         String nom=nombre.getText().trim();
         int  ataq=Integer.valueOf(ataque.getText().trim());
         int  def=Integer.valueOf(defensa.getText().trim());
         String tip=tipo.getSelectedItem().toString();
         String img=Imag.getText();
-        Personajes objeto=new Personajes(nom,ataq,def,tip,img);
-        lista2.insertarCabezaLista(objeto);
-        lista2.visualizar();
-        jTable1.getTableHeader().setReorderingAllowed(false) ;
+       
+        
+        if(!img.isEmpty()){ 
+           Personajes objeto=new Personajes(nom,ataq,def,tip,img);
+           lista2.insertarCabezaLista(objeto);
+           lista2.visualizar();
+           jTable1.getTableHeader().setReorderingAllowed(false) ;
 
-        DefaultTableModel modelo=(DefaultTableModel) jTable1.getModel();
-        Object [] filas=new Object[modelo.getColumnCount()];
-             
-        filas[0]=nom;
-        filas[1]=ataq;
-        filas[2]=def;
-        filas[3]=tip;
-        filas[4]=Imag.getText();
-        combo.addItem(nom);
-        modelo.addRow(filas);
+           DefaultTableModel modelo=(DefaultTableModel) jTable1.getModel();
+           Object [] filas=new Object[modelo.getColumnCount()];
+           filas[0]=nom;
+           filas[1]=ataq;
+           filas[2]=def;
+           filas[3]=tip;
+           filas[4]=Imag.getText();
+           combo.addItem(nom);
+            modelo.addRow(filas);
+        }else{
+            JOptionPane.showMessageDialog(null,"Seleccione una imagen");
+        }
+        }catch(Exception ex)
+        {
+           JOptionPane.showMessageDialog(null,"LLenar Campos");
+
+        }
     }//GEN-LAST:event_InsertarActionPerformed
 
     private void comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboActionPerformed

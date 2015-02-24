@@ -20,6 +20,7 @@ public class Zombies extends javax.swing.JFrame {
      */
     public Zombies() {
         initComponents();
+        CampoExtra.setEnabled(false);
     }
 
     /**
@@ -35,8 +36,10 @@ public class Zombies extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         cantidad = new javax.swing.JTextField();
         nombre = new javax.swing.JTextField();
+        CampoExtra = new javax.swing.JTextField();
         extras = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -46,7 +49,7 @@ public class Zombies extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Cantidad:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -58,11 +61,12 @@ public class Zombies extends javax.swing.JFrame {
                 cantidadKeyTyped(evt);
             }
         });
-        getContentPane().add(cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 220, 30));
-        getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 220, 30));
+        getContentPane().add(cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 220, 30));
+        getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 220, 30));
+        getContentPane().add(CampoExtra, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 260, 30));
 
         extras.setBackground(new java.awt.Color(51, 51, 51));
-        extras.setFont(new java.awt.Font("Ravie", 1, 18)); // NOI18N
+        extras.setFont(new java.awt.Font("Ravie", 1, 12)); // NOI18N
         extras.setForeground(new java.awt.Color(255, 255, 255));
         extras.setText("Agregar Campos Extras");
         extras.addActionListener(new java.awt.event.ActionListener() {
@@ -70,7 +74,7 @@ public class Zombies extends javax.swing.JFrame {
                 extrasActionPerformed(evt);
             }
         });
-        getContentPane().add(extras, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, -1, -1));
+        getContentPane().add(extras, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, -1, -1));
 
         jButton2.setBackground(new java.awt.Color(51, 51, 51));
         jButton2.setFont(new java.awt.Font("Ravie", 1, 14)); // NOI18N
@@ -81,7 +85,12 @@ public class Zombies extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Extras:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/zombies.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -90,19 +99,26 @@ public class Zombies extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void extrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extrasActionPerformed
-        
+        CampoExtra.setEnabled(true);        
     }//GEN-LAST:event_extrasActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
      contador++;
         String nom=nombre.getText().trim();
         String cant=cantidad.getText().trim();
+        String ext=CampoExtra.getText().trim();
         CantidadZombie=Integer.valueOf(cant);
-        nombreZombie=nom;
+        nombreZombie=nom; 
         if(contador==1){
            Inicio.ListaInformacion.unir("Zombies");
            Inicio.ListaInformacion.unir(nom);
            Inicio.ListaInformacion.unir(cant);
+           
+           if(!ext.isEmpty()){
+               System.out.println("true");
+           Inicio.ListaInformacion.unir(ext);
+           }
+           
         }else{
             
         }
@@ -162,12 +178,14 @@ public class Zombies extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField CampoExtra;
     private javax.swing.JTextField cantidad;
     private javax.swing.JButton extras;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField nombre;
     // End of variables declaration//GEN-END:variables
 }
