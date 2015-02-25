@@ -16,8 +16,17 @@ import java.util.logging.Logger;
 public class Hilo implements Runnable {
     static Thread objetoHilo;
     static int contad=-1,CantPersonajes=0,CantPersonajes2,contad2=-1,contadorCola=0;
-    boolean done=false;
+    static boolean done=false;
     Tablero t;
+    public static void iniciarVariables()
+    {
+        contad=-1;
+        CantPersonajes=0;
+        CantPersonajes2=0;
+        contad2=-1;
+        contadorCola=0;
+        done=false;
+    }
     public static void empezarHilo(){
         objetoHilo=new Thread(new Hilo());
      	objetoHilo.start();
@@ -33,9 +42,7 @@ public class Hilo implements Runnable {
       
       while(!done){ 
        try{
-         //int random=(int) (Math.random()*CrearPlantas.imagenes.size());
-         //int random2=(int) (Math.random()*CrearZombies.imagenesZombies.size());
-         // System.out.println("cantidad: "+Plantas.Cantidad+"contadorPer: "+(CantPersonajes)+"cont: "+contad);
+         
             if(contad<CrearPlantas.imagenes.size()&&contad!=-1){
                int random=(int) (Math.random()*CrearPlantas.imagenes.size());
                MontarImagenes(CrearPlantas.imagenes.get(random));

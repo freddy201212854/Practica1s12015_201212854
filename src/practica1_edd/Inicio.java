@@ -143,7 +143,23 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_JuegoActionPerformed
 
     private void Eliminar_JuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Eliminar_JuegoActionPerformed
-         
+      
+        ListaInformacion.VaciarLista();
+        ListaInformacion.iniciarVariables();
+        
+        CrearPlantas.lista.VaciarLista();
+        CrearPlantas.lista.inicializarVariables();
+        
+        CrearZombies.lista2.VaciarLista();
+        CrearZombies.lista2.inicializarVariables();
+        
+        ListaPilaZombies.VaciarLista();
+        ListaPilaZombies.iniciarVariables();
+        
+        ListaColaPlantas.VaciarLista();
+        ListaColaPlantas.iniciarVariables();
+        
+        Hilo.iniciarVariables();
     }//GEN-LAST:event_Eliminar_JuegoActionPerformed
 
     private void comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboActionPerformed
@@ -162,11 +178,37 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_comboActionPerformed
 
     private void reportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportesActionPerformed
+       
+        if(!ListaInformacion.isEmpty()){
         ListaInformacion.imprimir();
-        ListaColaPlantas.imprimirCola();
-        ListaPilaZombies.imprimirPila();
-        CrearZombies.lista2.imprimir2();
-        CrearPlantas.lista.imprimir();
+        }else{
+            JOptionPane.showMessageDialog(null,"Lista Jugadores vacia");
+        }
+        if(!ListaColaPlantas.isEmpty())
+        {
+            ListaColaPlantas.imprimirCola();
+        }else{
+            JOptionPane.showMessageDialog(null,"Lista Personajes Plantas(Cola) vacia");
+        }
+        if(!ListaPilaZombies.isEmpty())
+        {
+            ListaPilaZombies.imprimirPila();
+        }else{
+            JOptionPane.showMessageDialog(null,"Lista Personajes Zombies(Pila) vacia");
+        }
+        if(!CrearZombies.lista2.isEmpty())
+        {
+            CrearZombies.lista2.imprimir2();
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Lista Catalogo Zombies vacia");
+        }
+        if(!CrearPlantas.lista.isEmpty())
+        {
+            CrearPlantas.lista.imprimir();
+        }else{
+            JOptionPane.showMessageDialog(null,"Lista Catalogo Plantas vacia");
+        }
     }//GEN-LAST:event_reportesActionPerformed
 
     

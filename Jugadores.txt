@@ -1,11 +1,15 @@
 digraph A{
 graph [rankdir = "LR"];
 node [fontsize = "16" shape = "shape"];
-Jugadores->Plantas->Pedro
+Jugadores->Plantas->Alejandro
 Plantas->Zombies
-Pedro->7
-Zombies->Juan
-Juan->4
-4->Edad22
+Alejandro->6
+Zombies->Fredy
+Fredy->5
+Plantas->Alejandro
+Plantas->Zombies
+Alejandro->6
+Zombies->Fredy
+Fredy->5
 
 }

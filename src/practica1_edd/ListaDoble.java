@@ -13,14 +13,21 @@ import java.io.PrintWriter;
  * @author KRATOS
  */
 public class ListaDoble {
-    static String nombres,tipos,imgs,textos,textos2="Zombies",textos3="Plantas",nomPersonaje;
+    static String nombres,tipos,imgs,textos,textos2="Zombies",textos3="Plantas";
     static int ataques,defensa,size,cont,contador=1;
     NodoDoble cabeza;
-    NodoDoble foto;
     
     public ListaDoble()
     {
         cabeza=null;
+        
+    }
+    public void inicializarVariables()
+    {
+        imgs="";
+        textos="";
+        textos2="zombies";
+        textos3="Plantas";
     }
     public void insertarCabezaLista(Object entrada)
         {
@@ -37,6 +44,10 @@ public class ListaDoble {
        public boolean isEmpty()
        {
            return cabeza==null;
+       }
+       public void VaciarLista()
+       {
+           cabeza=null;
        }
         public void eliminar(String entrada)
         {
@@ -119,9 +130,7 @@ public class ListaDoble {
         n = n.adelante;
         }
     }
-     public String nomPersonaje(){
-         return nomPersonaje;
-     }
+    
     public void imprimir(){//imprime los datos de la lista generando su imagen
       if(!isEmpty()){  
             NodoDoble actual=cabeza;

@@ -24,6 +24,21 @@ public class ListaEnlazada {
         firstNode=null;
         lastNode=null;
         down=null;
+        
+    }
+    public  void iniciarVariables()
+    {
+        textos="";
+        txt="";
+        textosCola="";
+        textosPila="";
+        contador=0;
+    }        
+            
+    public void VaciarLista()
+    {
+        firstNode=null;
+        down=null;
     }
     public boolean isEmpty(){// verifica si la lista esta vacia
         return firstNode==null; 
