@@ -134,7 +134,7 @@ public class Inicio extends javax.swing.JFrame {
          
         if(!ListaInformacion.isEmpty())
         {
-           Tablero ventana=new Tablero();
+           Matriz ventana=new Matriz();
            ventana.setVisible(true);
            // this.setVisible(false);
         }else{

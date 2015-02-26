@@ -17,13 +17,19 @@ public class Tablero extends javax.swing.JFrame {
    JLabel lab,lab2;
    static JPanel panel,panel2;
     int contador=100;
+    
+    JLabel tablero[][];
+    JPanel P;
+    int pos_col=0,pos_lin=0;
+    
     public Tablero() {
         initComponents();
         
           Hilo.empezarHilo();
           
-          this.setTitle("JUEGO");
           
+          this.setTitle("JUEGO");
+                   
           String path="/imagenes/portada4.jpg";
           URL url=this.getClass().getResource(path);
           ImageIcon icon=new ImageIcon(url);
@@ -57,12 +63,35 @@ public class Tablero extends javax.swing.JFrame {
                 
                   
                 add(gui2);
+        
+                  P=new JPanel(new GridLayout(Matriz.filas,Matriz.columnas));
+        P.setLayout(new GridLayout(9,9));
+        String path3="/imagenes/tabla.jpg";
+          URL url3=this.getClass().getResource(path3);
+          ImageIcon icon3=new ImageIcon(url3);
+          tablero=new JLabel[Matriz.filas][Matriz.columnas];   
+         for(int i=0;i<Matriz.filas;i++){
+         pos_col=152;
+         pos_lin=pos_lin+101;              
+             for(int j=0;j<Matriz.columnas;j++){
+                tablero[i][j]=new JLabel("freddy");
+                tablero[i][j].setIcon(icon3);
+                pos_col=pos_col+102;
+                tablero[i][j].setBounds(pos_col,pos_lin-30,100 ,100);
                
-                 lab2=new JLabel();
+              //  tablero[i][j].setHorizontalAlignment( tablero[i][j].CENTER); 
+                P.add(tablero[i][j]);
+                getContentPane().add(tablero[i][j]);
+            }
+         
+        }
+        
+        this.add(P);
+            /*     lab2=new JLabel();
                 lab2.setBounds(255,70,823,600);
                 lab2.setIcon(icon2);
                 add(lab2);
-                
+              */  
                 lab=new JLabel();
                 lab.setBounds(0,0,1330,1028);
                 lab.setIcon(icon);
