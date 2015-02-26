@@ -42,7 +42,7 @@ public class Hilo implements Runnable {
       
       while(!done){ 
        try{
-         
+           //System.out.println("");
             if(contad<CrearPlantas.imagenes.size()&&contad!=-1){
                int random=(int) (Math.random()*CrearPlantas.imagenes.size());
                MontarImagenes(CrearPlantas.imagenes.get(random));
