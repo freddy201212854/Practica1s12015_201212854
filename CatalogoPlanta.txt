@@ -1,4 +1,4 @@
 digraph A{
 node [fontsize = "16" shape = "shape"];
-Plantas->pla2->pla
+Plantas->plantas3->plantas2->plantas1
 }

@@ -1,4 +1,4 @@
 digraph A{
 node [fontsize = "16" shape = "shape"];
-zombies->zombi
+zombies->zombie2->zombie1
 }

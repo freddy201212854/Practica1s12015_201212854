@@ -1,8 +1,9 @@
 digraph A{
 node [fontsize = "16" shape = "shape"];
-plaPersonaje1->plaPersonaje2
-plaPersonaje2->plaPersonaje3
-plaPersonaje3->pla2Personaje4
-pla2Personaje4->pla2Personaje5
+plantaPersonaje1->plantas3Personaje2
+plantas3Personaje2->plantas1Personaje3
+plantas1Personaje3->plantas1Personaje4
+plantas1Personaje4->plantaPersonaje5
+plantaPersonaje5->plantas2Personaje6
 
 }
